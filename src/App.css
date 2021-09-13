@@ -21,6 +21,9 @@ li {
 ul {
   padding-left: 0px !important;
 }
+.pt-11 {
+  padding-top: 115px !important;
+}
 
 /* Custom css */
 .text-green {
@@ -244,6 +247,7 @@ ul {
   margin-bottom: 0px !important;
   font-size: 23px !important;
   font-weight: 600;
+  text-transform: capitalize;
 }
 .trans-title a {
   color: var(--purple-color);
@@ -422,6 +426,7 @@ ul {
   border-radius: 10px;
   margin-right: 20px;
   text-align: center;
+  min-width: 400px;
 }
 .img-cont {
   height: 60px;
@@ -429,7 +434,6 @@ ul {
   display: inline-flex;
   overflow: hidden;
   align-self: center;
-  margin: 0 90px;
 }
 .monthly-bill-contnent p {
   margin-bottom: 0px !important;
@@ -744,6 +748,35 @@ DESIGN FOR PAGES, COMPONENT, AND OTHRES
   font-size: 19px !important;
   font-weight: 500;
   text-align: center;
+  display: block;
+}
+.paid-awaiting {
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  padding-top: 30px;
+}
+.paid-awaiting p {
+  position: relative;
+  cursor: pointer;
+}
+.first-state {
+  color: var(--purple-color) !important;
+  position: relative;
+  transition: 300ms all linear;
+}
+.first-state::after {
+  content: "";
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  background: var(--purple-color);
+  bottom: -50%;
+  left: 0;
+  transition: 300ms ease-in;
+}
+.paid-awaiting p {
+  font-size: 15px !important;
+  text-align: center;
 }
 .page.navbar .MuiSvgIcon-root {
   color: var(--purple-color) !important;
@@ -899,10 +932,72 @@ DESIGN FOR PAGES, COMPONENT, AND OTHRES
   color: var(--purple-color);
   font-weight: 500;
 }
+/* TRANSCTION ALL PAGE */
+.transaction-all-page .notify .MuiSvgIcon-root {
+  font-size: 30px !important;
+}
+.transaction-all-page .notify span {
+  color: var(--white-color);
+  font-size: 15px !important;
+  right: 0;
+}
+.transaction-all-page .for-flexing:hover {
+  transform: scale(1);
+}
+.trans-list label {
+  font-size: 19px !important;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin: 19px 0;
+}
+.trans-list button {
+  background: var(--purple-color);
+  color: var(--white-color);
+  border: none;
+  padding: 10px 0;
+  border-radius: 7px;
+  text-transform: capitalize;
+  transition: 150ms ease-in;
+  font-weight: 600;
+}
+.trans-list button:hover {
+  background: #593fb8;
+  color: var(--text-color);
+}
+.latest-news-all .homeincexp{
+  margin-top: 0px;
+}
+.latest-news-all .latest-box{
+  min-width: 100%;
+  cursor: pointer;
+}
+/* MONTHLY BILL ALL */
+.monthly-bill-all .homeincexp {
+  margin-top: 0px;
+}
+.monthly-bill-all .monthly-bill-contnent {
+  min-width: 100% !important;
+}
+/* Savings all */
+.saving-all .saving-container:nth-child(4) .savebar {
+  width: 35%;
+}
+.saving-all .saving-container:nth-child(5) .savebar {
+  width: 60%;
+}
+.saving-all .saving-container:nth-child(6) .savebar {
+  width: 55%;
+}
+.saving-all .saving-container:nth-child(7) .savebar {
+  width: 90%;
+}
 /* 
 MEDIA QUERIES
 */
 @media screen and (max-width: 700px) {
+  .saving-all .saving-top p {
+    font-size: 17px !important;
+  }
   .top p:first-child {
     font-size: 18px !important;
     font-weight: 500;
@@ -928,5 +1023,8 @@ MEDIA QUERIES
   .page-list .card-box .cvv p:last-child,
   .page-list .card-box .expire p:last-child {
     font-size: 16px !important;
+  }
+  .monthly-bill-all .monthly-bill-contnent {
+    min-width: 100%;
   }
 }

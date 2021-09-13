@@ -43,6 +43,12 @@ const BottomNavbar = () => {
       setComponent(false);
       setCard(true);
       setSet(false);
+    } else {
+      setOverView(false);
+      setPages(false);
+      setComponent(false);
+      setCard(false);
+      setSet(false);
     }
     // eslint-disable-next-line
   }, []);

@@ -5,7 +5,7 @@ const HomeLatestNews = () => {
   return (
     <div className="container">
       <div className="trans-title">
-        <p>Transactions</p>
+        <p>latest news</p>
         <Link to="/latest-news/all">View all</Link>
       </div>
       <div className="latest">
