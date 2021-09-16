@@ -1,14 +1,15 @@
 import React from "react";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import { Link } from "react-router-dom";
 
 const LatestNews = () => {
   return (
     <div className="latest-news-all">
       <div className="page navbar">
         <div className="container">
-          <div className="back-to">
+          <Link to="/" className="back-to">
             <ArrowBackIosIcon />
-          </div>
+          </Link>
           <div className="other-page-title">news</div>
           <div className="other-needed-things"></div>
         </div>

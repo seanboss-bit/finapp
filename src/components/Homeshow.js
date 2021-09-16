@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import AddIcon from "@material-ui/icons/Add";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import ImportExportIcon from "@material-ui/icons/ImportExport";
+import { Link } from "react-router-dom";
 
 const Homeshow = () => {
+  const [withdraw, setWithdraw] = useState(false);
+  const [send, setSend] = useState(false);
+  const [exchange, setExchange] = useState(false);
   return (
     <div className="home-show">
       <div className="homeshow">
@@ -22,25 +26,34 @@ const Homeshow = () => {
                 </div>
               </div>
               <div className="bottom">
-                <div className="transctions-options">
+                <div
+                  className="transctions-options"
+                  onClick={() => setWithdraw(true)}
+                >
                   <div className="back">
                     <ArrowDownwardIcon />
                   </div>
                   <p>withdraw</p>
                 </div>
-                <div className="transctions-options">
+                <div
+                  className="transctions-options"
+                  onClick={() => setSend(true)}
+                >
                   <div className="back">
                     <ArrowForwardIcon />
                   </div>
                   <p>send</p>
                 </div>
-                <div className="transctions-options">
+                <Link to="/cards/all" className="transctions-options">
                   <div className="back">
                     <CreditCardIcon />
                   </div>
                   <p>cards</p>
-                </div>
-                <div className="transctions-options">
+                </Link>
+                <div
+                  className="transctions-options"
+                  onClick={() => setExchange(true)}
+                >
                   <div className="back">
                     <ImportExportIcon />
                   </div>
@@ -51,6 +64,113 @@ const Homeshow = () => {
           </div>
         </div>
       </div>
+      {/* ===========
+      P0PUPS
+      ==========*/}
+      {withdraw ? (
+        <div className="index-modal" onClick={() => setWithdraw(false)}>
+          <div className="index-modal-body">
+            <div className="index-body-title">
+              <p>withdraw money</p>
+            </div>
+            <div className="index-body-content">
+              <div className="index-modal-inputs">
+                <p> from</p>
+                <select>
+                  <option>savings (*** 5091)</option>
+                  <option>investmentss (*** 6212)</option>
+                  <option>mortage (*** 5021)</option>
+                </select>
+              </div>
+              <div className="index-modal-inputs">
+                <p> to</p>
+                <input type="text" placeholder="Enter IBAN" />
+              </div>
+              <div className="index-modal-inputs">
+                <p>enter amount</p>
+                <div className="boxing">
+                  $
+                  <input type="text" placeholder="100" />
+                </div>
+              </div>
+              <button className="btn-purple">withdraw</button>
+            </div>
+          </div>
+        </div>
+      ) : null}
+      {send ? (
+        <div className="index-modal" onClick={() => setSend(false)}>
+          <div className="index-modal-body">
+            <div className="index-body-title">
+              <p>send money</p>
+            </div>
+            <div className="index-body-content">
+              <div className="index-modal-inputs">
+                <p> from</p>
+                <select>
+                  <option>savings (*** 5091)</option>
+                  <option>investmentss (*** 6212)</option>
+                  <option>mortage (*** 5021)</option>
+                </select>
+              </div>
+              <div className="index-modal-inputs">
+                <p> to</p>
+                <input type="text" placeholder="Enter Bank ID" />
+              </div>
+              <div className="index-modal-inputs">
+                <p>enter amount</p>
+                <div className="boxing">
+                  $
+                  <input type="text" placeholder="100" />
+                </div>
+              </div>
+              <button className="btn-purple">send</button>
+            </div>
+          </div>
+        </div>
+      ) : null}
+      {exchange ? (
+        <div
+          className="index-modal exchange"
+          onClick={() => setExchange(false)}
+        >
+          <div className="index-modal-body">
+            <div className="index-body-title">
+              <p>exchange money</p>
+            </div>
+            <div className="index-body-content">
+              <div className="for-grid">
+                <div className="index-modal-inputs">
+                  <p> from</p>
+                  <select>
+                    <option>EUR</option>
+                    <option>USD</option>
+                    <option>AUD</option>
+                    <option>CAD</option>
+                  </select>
+                </div>
+                <div className="index-modal-inputs">
+                  <p> to</p>
+                  <select>
+                    <option>USD</option>
+                    <option>EUR</option>
+                    <option>AUD</option>
+                    <option>CAD</option>
+                  </select>
+                </div>
+              </div>
+              <div className="index-modal-inputs">
+                <p>enter amount</p>
+                <div className="boxing">
+                  $
+                  <input type="text" placeholder="100" />
+                </div>
+              </div>
+              <button className="btn-purple">exchange</button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };

@@ -5,7 +5,7 @@ const HomeSaving = () => {
   return (
     <div className="container">
       <div className="trans-title">
-        <p>Send Money</p>
+        <p>Savings</p>
         <Link to="/saving/all">View all</Link>
       </div>
       <div className="saving-body">
