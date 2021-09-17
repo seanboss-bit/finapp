@@ -12,6 +12,7 @@ import Pages from "./components/Pages";
 import Component from "./components/Component";
 import Settings from "./components/Settings";
 import Notification from "./components/Notification";
+import NotificationDetail from "./components/NotificationDetail";
 function App() {
   return (
     <Router>
@@ -48,6 +49,9 @@ function App() {
         </Route>
         <Route exact path="/notification">
           <Notification />
+        </Route>
+        <Route exact path="/notification-detail">
+          <NotificationDetail />
         </Route>
       </Switch>
       <BottomNavbar />

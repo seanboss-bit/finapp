@@ -101,8 +101,14 @@ Custom css
 .bg-grey {
   background: var(--grey-color) !important;
 }
+.bg-yellow {
+  background: var(--yellow-color) !important;
+}
 .mb-s2 {
   margin-bottom: 90px !important;
+}
+.mb-s1 {
+  margin-bottom: 60px !important;
 }
 .btn-purple {
   width: 100%;
@@ -330,6 +336,7 @@ Transaction List
   font-size: 23px !important;
   font-weight: 600;
   text-transform: capitalize;
+  padding: 0px 20px;
 }
 .trans-title a {
   color: var(--purple-color);
@@ -337,6 +344,7 @@ Transaction List
   letter-spacing: 0.8px;
   cursor: pointer;
   transform: 250ms ease-in-out;
+  padding: 0px 20px;
 }
 .trans-title a:hover {
   transform: scale(1.03);
@@ -650,7 +658,7 @@ Latest News
   text-transform: capitalize;
   margin-right: 20px;
 }
-.latest-box img{
+.latest-box img {
   height: 300px;
   object-fit: cover;
 }
@@ -1163,6 +1171,9 @@ STYLING FOR POPUPS
   margin-bottom: 10px;
   position: relative;
 }
+.index-modal-inputs a {
+  font-size: 13px;
+}
 .index-modal-inputs p {
   margin-bottom: 10px !important;
   text-transform: capitalize;
@@ -1247,6 +1258,94 @@ STYLING FOR DETAIL PAGE
 }
 .detail-lines .amount {
   font-weight: 600;
+  text-transform: capitalize;
+}
+/*=================  
+STYLE FOR NOTIFICATION PAGE AND NOTIFICATION DETAILS
+===================*/
+.notifications .page-list {
+  padding-top: 49px !important;
+}
+.notify-list {
+  background: var(--white-color);
+  border-top: 2px solid #eee;
+}
+.icn {
+  display: flex;
+  background: var(--purple-color);
+  height: 45px;
+  width: 45px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: var(--white-color);
+}
+.notify-list li:nth-child(2) .icn {
+  background: var(--green-color);
+}
+.notify-list li:nth-child(3) .icn {
+  background: var(--red-color);
+}
+.notify-list li:nth-child(4) .icn {
+  background: var(--yellow-color);
+}
+.contidet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #eee !important;
+  padding: 10px 0;
+}
+.contidet:last-child {
+  border-bottom: none;
+}
+.contidet p {
+  margin-bottom: 0px !important;
+  color: var(--text-color);
+}
+.contidet p:nth-child(1) {
+  font-size: 20px !important;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+.contidet p:nth-child(2),
+.contidet p:nth-child(3) {
+  font-size: 13px !important;
+  color: var(--text-grey);
+  text-transform: capitalize;
+}
+.contidet .naira {
+  font-size: 13px !important;
+  color: var(--text-grey);
+}
+.number-of-times {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-color);
+}
+.number-of-times span {
+  color: var(--white-color);
+  background: var(--purple-color);
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.number-of-times .MuiSvgIcon-root {
+  font-size: 16px !important;
+}
+.list-task {
+  display: grid;
+  grid-template-columns: 0.3fr 6fr;
+  gap: 20px;
+  align-items: center;
+}
+.notify-list .active {
+  background: rgba(220, 220, 233, 0.3);
+  width: 100%;
 }
 /*======================
 MEDIA QUERIES
@@ -1298,5 +1397,8 @@ MEDIA QUERIES
   }
   .trans-title a {
     font-size: 14px !important;
+  }
+  .detail-body{
+    height: 95vh;
   }
 }

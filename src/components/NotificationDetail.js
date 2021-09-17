@@ -4,7 +4,7 @@ import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 import { Link } from "react-router-dom";
 import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 
-const Detail = () => {
+const NotificationDetail = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
@@ -23,10 +23,10 @@ const Detail = () => {
         <div className="details">
           <div className="page navbar">
             <div className="container">
-              <Link to="/" className="back-to">
+              <Link to="/notification" className="back-to">
                 <ArrowBackIosIcon />
               </Link>
-              <div className="other-page-title">my savings</div>
+              <div className="other-page-title">notification detail</div>
               <div className="other-needed-things">
                 <DeleteOutlineOutlinedIcon />
               </div>
@@ -38,28 +38,16 @@ const Detail = () => {
                 <span>
                   <ArrowForwardIcon />
                 </span>
-                <p>payment sent</p>
+                <p>payment recived</p>
               </div>
               <div className="detail-content">
                 <div className="detail-lines">
-                  <p>status</p>
-                  <p className="text-green">sucess</p>
-                </div>
-                <div className="detail-lines">
-                  <p>to</p>
-                  <p>jordi santiago</p>
+                  <p>from</p>
+                  <p className="amount">john doe</p>
                 </div>
                 <div className="detail-lines">
                   <p>bank name</p>
                   <p>envato bank</p>
-                </div>
-                <div className="detail-lines">
-                  <p>transaction category</p>
-                  <p>shopping</p>
-                </div>
-                <div className="detail-lines">
-                  <p>reciept</p>
-                  <p>yes</p>
                 </div>
                 <div className="detail-lines">
                   <p>date</p>
@@ -78,4 +66,4 @@ const Detail = () => {
   );
 };
 
-export default Detail;
+export default NotificationDetail;
