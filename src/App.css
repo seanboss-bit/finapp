@@ -47,6 +47,41 @@ ul {
     transform: rotate(360deg);
   }
 }
+.naira {
+  font-size: 17px;
+  position: relative;
+}
+.naira::after,
+.naira::before {
+  background: var(--text-color);
+  content: "";
+  width: 100%;
+  height: 1.5px;
+  position: absolute;
+  left: 0;
+}
+.naira::before {
+  bottom: 30%;
+}
+.naira::after {
+  top: 40%;
+}
+.text-green .naira::after,
+.text-green .naira::before {
+  background: var(--green-color);
+}
+.text-red .naira::after,
+.text-red .naira::before {
+  background: var(--red-color);
+}
+.card-box .naira::after,
+.card-box .naira::before {
+  background: var(--white-color);
+}
+.monthly-bill-contnent .naira::after,
+.monthly-bill-contnent .naira::before {
+  background: var(--text-color);
+}
 
 /* ===============
 Custom css 
@@ -106,16 +141,19 @@ Custom css
 .main-user {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 .main-user .MuiSvgIcon-root {
   font-size: 30px !important;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 .notify,
 .user {
   position: relative;
-  padding-right: 5px;
+  color: var(--white-color);
+}
+.user:hover,
+.notify:hover {
+  color: var(--white-color);
 }
 .user {
   margin-left: 6px;
@@ -123,11 +161,12 @@ Custom css
 .notify span,
 .user span {
   background: var(--red-color);
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
   border-radius: 50%;
   position: absolute;
-  top: -10px;
+  font-size: 13px;
+  top: -7px;
   right: 0;
   display: flex;
   align-items: center;
@@ -205,8 +244,9 @@ Custom css
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 50px;
+  width: 50px;
   border-radius: 15px;
-  padding: 15px;
   color: var(--white-color);
   cursor: pointer;
   position: relative;
@@ -319,6 +359,7 @@ Transaction List
   height: 50px;
   width: 50px;
   border-radius: 10px;
+  object-fit: cover;
 }
 .name {
   display: grid;
@@ -455,6 +496,7 @@ Send Money Side
   height: 100px;
   width: 100px;
   border-radius: 10px;
+  object-fit: cover;
 }
 .money-content p {
   margin-bottom: 0px !important;
@@ -475,13 +517,34 @@ Send Money Side
   margin-right: 20px;
   text-align: center;
   min-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .img-cont {
   height: 60px;
   width: 60px;
-  display: inline-flex;
   overflow: hidden;
-  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: var(--yellow-color);
+  color: var(--white-color);
+}
+.monthly-bill-contnent:nth-child(1) .img-cont {
+  background: var(--purple-color);
+  color: var(--white-color);
+}
+.monthly-bill-contnent:nth-child(2) .img-cont {
+  background: var(--red-color);
+  color: var(--white-color);
+}
+.monthly-bill-contnent:nth-child(3) .img-cont {
+  background: var(--green-color);
+  color: var(--white-color);
 }
 .monthly-bill-contnent p {
   margin-bottom: 0px !important;
@@ -586,6 +649,10 @@ Latest News
   min-width: 297.667px;
   text-transform: capitalize;
   margin-right: 20px;
+}
+.latest-box img{
+  height: 300px;
+  object-fit: cover;
 }
 .latest-bottom {
   margin: 30px 0;
@@ -1067,13 +1134,14 @@ STYLING FOR POPUPS
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.23);
-  z-index: 99;
+  z-index: 7;
 }
 .index-modal-body {
   background: var(--white-color);
   position: absolute;
   bottom: 0;
   width: 100%;
+  z-index: 8;
 }
 .index-body-title {
   border-bottom: 2px #eee solid;
@@ -1215,5 +1283,20 @@ MEDIA QUERIES
   }
   .monthly-bill-all .monthly-bill-contnent {
     min-width: 100%;
+  }
+  .main-user .MuiSvgIcon-root {
+    margin-right: 4px;
+  }
+  .notify span {
+    right: 0px;
+  }
+  .text-logo {
+    padding-left: 50px;
+  }
+  .trans-title p {
+    font-size: 17px !important;
+  }
+  .trans-title a {
+    font-size: 14px !important;
   }
 }

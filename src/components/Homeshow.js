@@ -68,8 +68,8 @@ const Homeshow = () => {
       P0PUPS
       ==========*/}
       {withdraw ? (
-        <div className="index-modal" onClick={() => setWithdraw(false)}>
-          <div className="index-modal-body">
+        <div className="index-modal" onDoubleClick={() => setWithdraw(false)}>
+          <div className="index-modal-body" onClick={() => setWithdraw(true)}>
             <div className="index-body-title">
               <p>withdraw money</p>
             </div>
@@ -99,8 +99,8 @@ const Homeshow = () => {
         </div>
       ) : null}
       {send ? (
-        <div className="index-modal" onClick={() => setSend(false)}>
-          <div className="index-modal-body">
+        <div className="index-modal" onDoubleClick={() => setSend(false)}>
+          <div className="index-modal-body" onClick={() => setSend(true)}>
             <div className="index-body-title">
               <p>send money</p>
             </div>
@@ -132,9 +132,9 @@ const Homeshow = () => {
       {exchange ? (
         <div
           className="index-modal exchange"
-          onClick={() => setExchange(false)}
+          onDoubleClick={() => setExchange(false)}
         >
-          <div className="index-modal-body">
+          <div className="index-modal-body" onClick={() => setExchange(true)}>
             <div className="index-body-title">
               <p>exchange money</p>
             </div>

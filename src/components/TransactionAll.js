@@ -26,10 +26,10 @@ const TransactionAll = () => {
               </Link>
               <div className="other-page-title">transactions</div>
               <div className="other-needed-things">
-                <div className="notify">
+                <Link to="/notification" className="notify">
                   <span>4</span>
                   <NotificationsNoneIcon />
-                </div>
+                </Link>
               </div>
             </div>
           </div>
@@ -44,7 +44,7 @@ const TransactionAll = () => {
                     <p>shopping</p>
                   </div>
                 </div>
-                <p className="text-red">- $150</p>
+                <p className="text-red">- <span className="naira">N</span>150</p>
               </div>
             </Link>
             <Link to="/detail">
@@ -56,7 +56,7 @@ const TransactionAll = () => {
                     <p>apple store purchase</p>
                   </div>
                 </div>
-                <p className="text-red">- $29</p>
+                <p className="text-red">- <span className="naira">N</span>29</p>
               </div>
             </Link>
             <Link to="/detail">
@@ -68,7 +68,7 @@ const TransactionAll = () => {
                     <p>transfer</p>
                   </div>
                 </div>
-                <p className="text-green">+ $1,000</p>
+                <p className="text-green">+ <span className="naira">N</span>1,000</p>
               </div>
             </Link>
             <Link to="/detail">
@@ -80,7 +80,7 @@ const TransactionAll = () => {
                     <p>transfer</p>
                   </div>
                 </div>
-                <p className="text-green">- $186</p>
+                <p className="text-green">- <span className="naira">N</span>186</p>
               </div>
             </Link>
           </div>
@@ -95,7 +95,7 @@ const TransactionAll = () => {
                     <p>shopping</p>
                   </div>
                 </div>
-                <p className="text-red">- $150</p>
+                <p className="text-red">- <span className="naira">N</span>150</p>
               </div>
             </Link>
             <Link to="/detail">
@@ -107,7 +107,7 @@ const TransactionAll = () => {
                     <p>apple store purchase</p>
                   </div>
                 </div>
-                <p className="text-red">- $29</p>
+                <p className="text-red">- <span className="naira">N</span>29</p>
               </div>
             </Link>
           </div>
@@ -122,7 +122,7 @@ const TransactionAll = () => {
                     <p>shopping</p>
                   </div>
                 </div>
-                <p className="text-red">- $24</p>
+                <p className="text-red">- <span className="naira">N</span>24</p>
               </div>
             </Link>
           </div>
@@ -137,7 +137,7 @@ const TransactionAll = () => {
                     <p>shopping</p>
                   </div>
                 </div>
-                <p className="text-red">- $1,500</p>
+                <p className="text-red">- <span className="naira">N</span>1,500</p>
               </div>
             </Link>
             <Link to="/detail">
@@ -149,7 +149,7 @@ const TransactionAll = () => {
                     <p>shopping</p>
                   </div>
                 </div>
-                <p className="text-red">- $150</p>
+                <p className="text-red">- <span className="naira">N</span>150</p>
               </div>
             </Link>
             <Link to="/detail">
@@ -161,7 +161,7 @@ const TransactionAll = () => {
                     <p>transfer</p>
                   </div>
                 </div>
-                <p className="text-red">- $550</p>
+                <p className="text-red">- <span className="naira">N</span>550</p>
               </div>
             </Link>
             <Link to="/detail">
@@ -173,7 +173,7 @@ const TransactionAll = () => {
                     <p>shopping</p>
                   </div>
                 </div>
-                <p className="text-red">- $620</p>
+                <p className="text-red">- <span className="naira">N</span>620</p>
               </div>
             </Link>
             <button>load more</button>

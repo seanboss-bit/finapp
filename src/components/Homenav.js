@@ -10,6 +10,7 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import { Link } from "react-router-dom";
 
 const Homenav = () => {
   const [show, setShow] = useState(false);
@@ -19,24 +20,27 @@ const Homenav = () => {
         <div className="container">
           <i className="fas fa-bars" onClick={() => setShow(true)}></i>
           <div className="text-logo">
-            <p>finapp</p>
+            <p>SafePay</p>
           </div>
           <div className="main-user">
-            <div className="notify">
+            <Link to="/notification" className="notify">
               <span>4</span>
               <NotificationsNoneIcon />
-            </div>
-            <div className="user">
+            </Link>
+            <Link to="/settings" className="user">
               <span>6</span>
-              <img src="images/avatar1.jpg" alt="" />
-            </div>
+              <img
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
+                alt=""
+              />
+            </Link>
           </div>
         </div>
       </div>
       {show ? (
         <div
           className="modale-back"
-          onClick={() => {
+          onDoubleClick={() => {
             setShow(false);
           }}
         >

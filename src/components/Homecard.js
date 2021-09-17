@@ -15,7 +15,7 @@ const Homecard = () => {
             <div className="card-box-left">
               <div className="balance">
                 <p>balance</p>
-                <p> $ 1,043,450</p>
+                <p> <span className="naira">N</span> 1,043,450</p>
               </div>
               <div className="card-numb">
                 <p>card num</p>
@@ -45,7 +45,7 @@ const Homecard = () => {
             <div className="card-box-left">
               <div className="balance">
                 <p>balance</p>
-                <p> $ 1,043,450</p>
+                <p> <span className="naira">N</span> 1,043,450</p>
               </div>
               <div className="card-numb">
                 <p>card num</p>
@@ -75,7 +75,7 @@ const Homecard = () => {
             <div className="card-box-left">
               <div className="balance">
                 <p>balance</p>
-                <p> $ 1,043,450</p>
+                <p> <span className="naira">N</span> 1,043,450</p>
               </div>
               <div className="card-numb">
                 <p>card num</p>
@@ -105,7 +105,7 @@ const Homecard = () => {
             <div className="card-box-left">
               <div className="balance">
                 <p>balance</p>
-                <p> $ 1,043,450</p>
+                <p> <span className="naira">N</span> 1,043,450</p>
               </div>
               <div className="card-numb">
                 <p>card num</p>
@@ -135,7 +135,7 @@ const Homecard = () => {
             <div className="card-box-left">
               <div className="balance">
                 <p>balance</p>
-                <p> $ 1,043,450</p>
+                <p> <span className="naira">N</span> 1,043,450</p>
               </div>
               <div className="card-numb">
                 <p>card num</p>
@@ -165,7 +165,7 @@ const Homecard = () => {
             <div className="card-box-left">
               <div className="balance">
                 <p>balance</p>
-                <p> $ 1,043,450</p>
+                <p> <span className="naira">N</span> 1,043,450</p>
               </div>
               <div className="card-numb">
                 <p>card num</p>

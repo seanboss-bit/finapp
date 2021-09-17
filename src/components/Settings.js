@@ -31,17 +31,20 @@ const Settings = () => {
               </Link>
               <div className="other-page-title">settings</div>
               <div className="other-needed-things">
-                <div className="notify">
+                <Link to="/notification" className="notify">
                   <span>4</span>
                   <NotificationsNoneIcon />
-                </div>
+                </Link>
               </div>
             </div>
           </div>
           <div className="page-list container">
             <div className="settings-user">
               <div className="settings-inner">
-                <img src="/images/avatar1.jpg" alt="" />
+                <img
+                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
+                  alt=""
+                />
                 <span>
                   <CameraAltOutlinedIcon />
                 </span>

@@ -52,7 +52,7 @@ const MonthlyBills = () => {
                 <div className="img-cont">
                   <img src="/images/avatar1.jpg" alt="#" />
                 </div>
-                <p className="month-price">$ 14</p>
+                <p className="month-price"><span className="naira">N</span> 14</p>
                 <p className="month-desc">prime monthy subscription</p>
                 <button>pay now</button>
               </div>
@@ -60,7 +60,7 @@ const MonthlyBills = () => {
                 <div className="img-cont">
                   <img src="/images/avatar1.jpg" alt="#" />
                 </div>
-                <p className="month-price">$ 8</p>
+                <p className="month-price"><span className="naira">N</span> 8</p>
                 <p className="month-desc">monthly payment</p>
                 <button>pay now</button>
               </div>
@@ -68,7 +68,7 @@ const MonthlyBills = () => {
                 <div className="img-cont">
                   <img src="/images/avatar1.jpg" alt="#" />
                 </div>
-                <p className="month-price">$ 15</p>
+                <p className="month-price"><span className="naira">N</span> 15</p>
                 <p className="month-desc">envato subscription</p>
                 <button>pay now</button>
               </div>
@@ -76,7 +76,7 @@ const MonthlyBills = () => {
                 <div className="img-cont">
                   <img src="/images/avatar1.jpg" alt="#" />
                 </div>
-                <p className="month-price">$ 49</p>
+                <p className="month-price"><span className="naira">N</span> 49</p>
                 <p className="month-desc">subscription fee</p>
                 <button>pay now</button>
               </div>
@@ -84,7 +84,7 @@ const MonthlyBills = () => {
                 <div className="img-cont">
                   <img src="/images/avatar1.jpg" alt="#" />
                 </div>
-                <p className="month-price">$ 12</p>
+                <p className="month-price"><span className="naira">N</span> 12</p>
                 <p className="month-desc">pro membership</p>
                 <button>pay now</button>
               </div>
@@ -92,7 +92,7 @@ const MonthlyBills = () => {
                 <div className="img-cont">
                   <img src="/images/avatar1.jpg" alt="#" />
                 </div>
-                <p className="month-price">$ 14</p>
+                <p className="month-price"><span className="naira">N</span> 14</p>
                 <p className="month-desc">prime monthly subscription</p>
                 <button>pay now</button>
               </div>
@@ -100,7 +100,7 @@ const MonthlyBills = () => {
                 <div className="img-cont">
                   <img src="/images/avatar1.jpg" alt="#" />
                 </div>
-                <p className="month-price">$ 8</p>
+                <p className="month-price"><span className="naira">N</span> 8</p>
                 <p className="month-desc">monthly payment</p>
                 <button>pay now</button>
               </div>
@@ -108,7 +108,7 @@ const MonthlyBills = () => {
                 <div className="img-cont">
                   <img src="/images/avatar1.jpg" alt="#" />
                 </div>
-                <p className="month-price">$ 15</p>
+                <p className="month-price"><span className="naira">N</span> 15</p>
                 <p className="month-desc">Envato Elements Subscription</p>
                 <button>pay now</button>
               </div>
@@ -120,7 +120,7 @@ const MonthlyBills = () => {
                 <div className="img-cont">
                   <img src="/images/avatar1.jpg" alt="#" />
                 </div>
-                <p className="month-price">$ 14</p>
+                <p className="month-price"><span className="naira">N</span> 14</p>
                 <p className="month-desc">Prime Monthly Subscription</p>
                 <button>pay now</button>
               </div>

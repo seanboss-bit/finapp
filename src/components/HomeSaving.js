@@ -15,7 +15,7 @@ const HomeSaving = () => {
               <p>gaming console</p>
               <p>gaming</p>
             </div>
-            <p>$499</p>
+            <p><span className="naira">N</span> 499</p>
           </div>
           <div className="saving-progress">
             <div className="savebar">85%</div>
@@ -27,7 +27,7 @@ const HomeSaving = () => {
               <p>new house</p>
               <p>living</p>
             </div>
-            <p>$ 100,000</p>
+            <p><span className="naira">N</span> 100,000</p>
           </div>
           <div className="saving-progress">
             <div className="savebar">55%</div>
@@ -39,7 +39,7 @@ const HomeSaving = () => {
               <p>sport car</p>
               <p>livestyle</p>
             </div>
-            <p>$ 42,500</p>
+            <p><span className="naira">N</span> 42,500</p>
           </div>
           <div className="saving-progress">
             <div className="savebar">15%</div>
