@@ -47,11 +47,11 @@ const NotificationDetail = () => {
                 </div>
                 <div className="detail-lines">
                   <p>bank name</p>
-                  <p>envato bank</p>
+                  <p className="amount">envato bank</p>
                 </div>
                 <div className="detail-lines">
                   <p>date</p>
-                  <p>sept 25, 2020 10:45AM</p>
+                  <p className="amount">sept 25, 2020 10:45AM</p>
                 </div>
                 <div className="detail-lines">
                   <p>amount</p>

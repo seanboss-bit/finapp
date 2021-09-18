@@ -31,7 +31,7 @@ const Homenav = () => {
               <span>6</span>
               <img
                 src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
-                alt=""
+                alt="#"
               />
             </Link>
           </div>
@@ -47,7 +47,10 @@ const Homenav = () => {
           <div className="modale-body">
             <div className="modal-info">
               <div className="modal-pic">
-                <img src="/images/avatar1.jpg" alt="#" />
+                <img
+                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
+                  alt="#"
+                />
               </div>
               <div className="modal-info-text">
                 <p>John Doe</p>
@@ -58,7 +61,10 @@ const Homenav = () => {
             <div className="modal-balance">
               <div className="container">
                 <p>Balance</p>
-                <p className="value">$ 2,475.50</p>
+                <p className="value">
+                  {" "}
+                  <span className="naira">N</span> 2,475.50
+                </p>
               </div>
               <div className="transfers">
                 <div className="tranfer-content">

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap");
 :root {
   --purple-color: #6236ff;
   --red-color: #ff396f;
@@ -8,6 +9,12 @@
   --text-grey: #958d9e;
   --white-color: #fff;
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 9%);
+}
+* {
+  font-family: "Roboto Condensed", sans-serif !important;
+}
+body {
+  font-family: "Roboto Condensed", sans-serif !important;
 }
 img {
   width: 100%;
@@ -228,6 +235,9 @@ Custom css
   font-size: 40px;
   font-weight: 700;
 }
+.top p:last-child .naira {
+  font-size: 35px;
+}
 .top-right {
   background: rgba(98, 54, 255, 0.1);
   color: var(--purple-color);
@@ -326,9 +336,9 @@ Expenses and savings
 Transaction List 
 ====================*/
 .trans-title {
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: space-between;
+  grid-template-columns: repeat(2, 1fr);
   margin: 30px 0;
 }
 .trans-title p {
@@ -345,6 +355,7 @@ Transaction List
   cursor: pointer;
   transform: 250ms ease-in-out;
   padding: 0px 20px;
+  text-align: right;
 }
 .trans-title a:hover {
   transform: scale(1.03);
@@ -792,6 +803,13 @@ Sidebar
   font-weight: 600;
   margin-bottom: 18px !important;
 }
+.modal-balance .value .naira {
+  font-size: 30px;
+}
+.modal-balance .value .naira::after,
+.modal-balance .value .naira::before {
+  background: var(--white-color);
+}
 .transfers {
   display: flex;
   align-items: center;
@@ -1023,7 +1041,7 @@ Page _- COMOPNENT Styling
   justify-content: center;
 }
 .settings-inner {
-  background: #fff;
+  background: var(--white-color);
   height: 130px;
   width: 130px;
   position: relative;
@@ -1398,7 +1416,10 @@ MEDIA QUERIES
   .trans-title a {
     font-size: 14px !important;
   }
-  .detail-body{
+  .detail-body {
     height: 95vh;
+  }
+  .top p:last-child .naira {
+    font-size: 25px;
   }
 }
