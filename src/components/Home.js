@@ -35,7 +35,7 @@ const Home = () => {
           <HomeMonthlyBills />
           <HomeSaving />
           <HomeLatestNews />
-          <footer>
+          <footer className="footer">
             <div className="container">
               <p>Copyright © Finapp 2021. All Rights Reserved.</p>
             </div>

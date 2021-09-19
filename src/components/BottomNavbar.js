@@ -51,7 +51,7 @@ const BottomNavbar = () => {
       setSet(false);
     }
     // eslint-disable-next-line
-  }, []);
+  }, [history.location.pathname]);
   const toHome = () => {
     history.push("/");
     setOverView(true);

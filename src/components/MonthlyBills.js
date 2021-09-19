@@ -2,6 +2,12 @@ import React, { useState, useEffect } from "react";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import AddSharpIcon from "@material-ui/icons/AddSharp";
 import { Link } from "react-router-dom";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import CreditCardIcon from "@mui/icons-material/CreditCard";
+import MusicNoteIcon from "@mui/icons-material/MusicNote";
+import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
+import GrassIcon from "@mui/icons-material/Grass";
+import GroupIcon from "@mui/icons-material/Group";
 
 const MonthlyBills = () => {
   const [paid, setPaid] = useState(0);
@@ -50,65 +56,81 @@ const MonthlyBills = () => {
             <div className="homeincexp container page-list pt-11 mb-s2">
               <div className="monthly-bill-contnent">
                 <div className="img-cont">
-                  <img src="/images/avatar1.jpg" alt="#" />
+                  <CalendarTodayIcon />
                 </div>
-                <p className="month-price"><span className="naira">N</span> 14</p>
+                <p className="month-price">
+                  <span className="naira">N</span> 14
+                </p>
                 <p className="month-desc">prime monthy subscription</p>
                 <button>pay now</button>
               </div>
               <div className="monthly-bill-contnent">
                 <div className="img-cont">
-                  <img src="/images/avatar1.jpg" alt="#" />
+                  <MusicNoteIcon />
                 </div>
-                <p className="month-price"><span className="naira">N</span> 8</p>
+                <p className="month-price">
+                  <span className="naira">N</span> 8
+                </p>
                 <p className="month-desc">monthly payment</p>
                 <button>pay now</button>
               </div>
               <div className="monthly-bill-contnent">
                 <div className="img-cont">
-                  <img src="/images/avatar1.jpg" alt="#" />
+                  <GrassIcon />
                 </div>
-                <p className="month-price"><span className="naira">N</span> 15</p>
+                <p className="month-price">
+                  <span className="naira">N</span> 15
+                </p>
                 <p className="month-desc">envato subscription</p>
                 <button>pay now</button>
               </div>
               <div className="monthly-bill-contnent">
                 <div className="img-cont">
-                  <img src="/images/avatar1.jpg" alt="#" />
+                  <CreditCardIcon />
                 </div>
-                <p className="month-price"><span className="naira">N</span> 49</p>
+                <p className="month-price">
+                  <span className="naira">N</span> 49
+                </p>
                 <p className="month-desc">subscription fee</p>
                 <button>pay now</button>
               </div>
               <div className="monthly-bill-contnent">
-                <div className="img-cont">
-                  <img src="/images/avatar1.jpg" alt="#" />
+                <div className="img-cont bg-red">
+                  <GroupIcon />
                 </div>
-                <p className="month-price"><span className="naira">N</span> 12</p>
+                <p className="month-price">
+                  <span className="naira">N</span> 12
+                </p>
                 <p className="month-desc">pro membership</p>
                 <button>pay now</button>
               </div>
               <div className="monthly-bill-contnent">
                 <div className="img-cont">
-                  <img src="/images/avatar1.jpg" alt="#" />
+                  <LocalHospitalIcon />
                 </div>
-                <p className="month-price"><span className="naira">N</span> 14</p>
+                <p className="month-price">
+                  <span className="naira">N</span> 14
+                </p>
                 <p className="month-desc">prime monthly subscription</p>
                 <button>pay now</button>
               </div>
               <div className="monthly-bill-contnent">
-                <div className="img-cont">
-                  <img src="/images/avatar1.jpg" alt="#" />
+                <div className="img-cont bg-teal">
+                  <CreditCardIcon />
                 </div>
-                <p className="month-price"><span className="naira">N</span> 8</p>
+                <p className="month-price">
+                  <span className="naira">N</span> 8
+                </p>
                 <p className="month-desc">monthly payment</p>
                 <button>pay now</button>
               </div>
               <div className="monthly-bill-contnent">
-                <div className="img-cont">
-                  <img src="/images/avatar1.jpg" alt="#" />
+                <div className="img-cont bg-purple">
+                  <GrassIcon />
                 </div>
-                <p className="month-price"><span className="naira">N</span> 15</p>
+                <p className="month-price">
+                  <span className="naira">N</span> 15
+                </p>
                 <p className="month-desc">Envato Elements Subscription</p>
                 <button>pay now</button>
               </div>
@@ -117,10 +139,12 @@ const MonthlyBills = () => {
           {paid === 1 ? (
             <div className="homeincexp container page-list pt-11 mb-s2">
               <div className="monthly-bill-contnent">
-                <div className="img-cont">
-                  <img src="/images/avatar1.jpg" alt="#" />
+                <div className="img-cont bg-teal">
+                  <CalendarTodayIcon />
                 </div>
-                <p className="month-price"><span className="naira">N</span> 14</p>
+                <p className="month-price">
+                  <span className="naira">N</span> 14
+                </p>
                 <p className="month-desc">Prime Monthly Subscription</p>
                 <button>pay now</button>
               </div>

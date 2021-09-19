@@ -8,13 +8,16 @@
   --grey-color: #8494a8;
   --text-grey: #958d9e;
   --white-color: #fff;
+  --darkmode-bg: #161129;
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 9%);
 }
-* {
+body .App.light,
+body .App.dark {
   font-family: "Roboto Condensed", sans-serif !important;
 }
-body {
-  font-family: "Roboto Condensed", sans-serif !important;
+.App.light,
+.App.dark {
+  transition: 300ms ease-in-out all;
 }
 img {
   width: 100%;
@@ -34,12 +37,13 @@ ul {
 .loading {
   background: var(--purple-color);
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 9999;
+  padding-bottom: 15px;
 }
 .loading img {
   height: 30px;
@@ -75,11 +79,11 @@ ul {
 }
 .text-green .naira::after,
 .text-green .naira::before {
-  background: var(--green-color);
+  background: var(--green-color) !important;
 }
 .text-red .naira::after,
 .text-red .naira::before {
-  background: var(--red-color);
+  background: var(--red-color) !important;
 }
 .card-box .naira::after,
 .card-box .naira::before {
@@ -94,10 +98,13 @@ ul {
 Custom css 
 =================*/
 .text-green {
-  color: var(--green-color);
+  color: var(--green-color) !important;
 }
 .text-red {
-  color: var(--red-color);
+  color: var(--red-color) !important;
+}
+.bg-purple{
+  background: var(--purple-color) !important;
 }
 .bg-teal {
   background: var(--green-color) !important;
@@ -111,8 +118,11 @@ Custom css
 .bg-yellow {
   background: var(--yellow-color) !important;
 }
-.mb-s2 {
-  margin-bottom: 90px !important;
+.App.light .mb-s2 {
+  padding-bottom: 90px !important;
+}
+.App.dark .mb-s2 {
+  padding-bottom: 90px !important;
 }
 .mb-s1 {
   margin-bottom: 60px !important;
@@ -137,7 +147,8 @@ Custom css
   position: fixed;
   width: 100%;
   padding: 10px 0;
-  z-index: 3;
+  z-index: 80;
+  transition: 300ms ease-in-out all;
 }
 .user img {
   width: 30px;
@@ -194,9 +205,17 @@ Custom css
 /*==========================
  Savings Info And THe Rest 
 ===========================*/
-.homeshow-inner {
+.App.light .homeshow-inner {
   border-radius: 10px;
   background: var(--white-color);
+  overflow: hidden;
+  margin-top: 60px;
+  padding: 20px 0;
+  box-shadow: var(--shadow);
+}
+.App.dark .homeshow-inner {
+  border-radius: 10px;
+  background: var(--darkmode-bg);
   overflow: hidden;
   margin-top: 60px;
   padding: 20px 0;
@@ -207,6 +226,10 @@ Custom css
   grid-template-columns: minmax(0, 1fr);
   padding-top: 10px;
 }
+.homeshow-inner {
+  position: relative;
+  z-index: 6;
+}
 .homeshow::before {
   content: "";
   background: var(--purple-color);
@@ -214,7 +237,7 @@ Custom css
   height: 200px;
   position: absolute;
   left: 0;
-  z-index: -1;
+  z-index: 1;
 }
 .top {
   display: flex;
@@ -222,10 +245,20 @@ Custom css
   justify-content: space-between;
   border-bottom: 1px solid #dcdce9;
 }
-.top p {
+.App.light .top p {
   margin-bottom: 0px !important;
   text-transform: capitalize;
   color: var(--text-color);
+}
+.App.dark .top p {
+  margin-bottom: 0px !important;
+  text-transform: capitalize;
+  color: var(--white-color);
+}
+.App.dark .top p .naira::after,
+.App.dark .top p .naira::before {
+  background: var(--white-color);
+  height: 3px;
 }
 .top p:first-child {
   font-size: 20px !important;
@@ -238,9 +271,17 @@ Custom css
 .top p:last-child .naira {
   font-size: 35px;
 }
-.top-right {
+.App.light .top-right {
   background: rgba(98, 54, 255, 0.1);
   color: var(--purple-color);
+  padding: 15px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 250ms ease;
+}
+.App.dark .top-right {
+  background: rgba(98, 54, 255, 0.1);
+  color: var(--text-grey);
   padding: 15px 10px;
   border-radius: 5px;
   cursor: pointer;
@@ -295,10 +336,18 @@ Custom css
 .transctions-options:nth-child(4) .back {
   background: var(--yellow-color);
 }
-.transctions-options p {
+.App.light .transctions-options p {
   text-align: center;
   margin-top: 10px;
   color: var(--text-color);
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 14px !important;
+}
+.App.dark .transctions-options p {
+  text-align: center;
+  margin-top: 10px;
+  color: var(--white-color);
   text-transform: capitalize;
   font-weight: 500;
   font-size: 14px !important;
@@ -313,24 +362,46 @@ Expenses and savings
   gap: 20px;
   margin-top: 20px;
 }
-.home-exp-inc-inner {
+.App.light .home-exp-inc-inner {
   background: var(--white-color);
   padding: 10px 20px;
   border-radius: 8px;
   box-shadow: var(--shadow);
 }
+.App.dark .home-exp-inc-inner {
+  background: var(--darkmode-bg);
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
 .home-exp-inc-inner p {
   margin-bottom: 0px !important;
   text-transform: capitalize;
 }
-.home-exp-inc-inner p:first-child {
+.App.light .home-exp-inc-inner p:first-child {
   color: var(--text-grey);
   font-size: 15px !important;
   font-weight: 500;
 }
-.home-exp-inc-inner p:last-child {
+.App.dark .home-exp-inc-inner p:first-child {
+  color: var(--white-color);
+  font-size: 15px !important;
+  font-weight: 500;
+}
+
+.App.light .home-exp-inc-inner p:last-child {
   font-size: 30px;
   font-weight: 600;
+}
+.App.dark .home-exp-inc-inner p:last-child {
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--white-color);
+}
+.App.dark .home-exp-inc-inner p:last-child .naira::before,
+.App.dark .home-exp-inc-inner p:last-child .naira::after {
+  background: var(--white-color);
 }
 /*==================
 Transaction List 
@@ -341,14 +412,22 @@ Transaction List
   grid-template-columns: repeat(2, 1fr);
   margin: 30px 0;
 }
-.trans-title p {
+.App.light .trans-title p {
   margin-bottom: 0px !important;
   font-size: 23px !important;
   font-weight: 600;
   text-transform: capitalize;
   padding: 0px 20px;
 }
-.trans-title a {
+.App.dark .trans-title p {
+  margin-bottom: 0px !important;
+  font-size: 23px !important;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 0px 20px;
+  color: var(--white-color);
+}
+.App.light .trans-title a {
   color: var(--purple-color);
   font-weight: 500;
   letter-spacing: 0.8px;
@@ -357,14 +436,31 @@ Transaction List
   padding: 0px 20px;
   text-align: right;
 }
-.trans-title a:hover {
-  transform: scale(1.03);
+.App.dark .trans-title a {
+  color: var(--text-grey);
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transform: 250ms ease-in-out;
+  padding: 0px 20px;
+  text-align: right;
 }
-.for-flexing {
+.App.light .for-flexing {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: var(--white-color);
+  margin-bottom: 20px;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  transition: transform 250ms ease-in-out;
+}
+.App.dark .for-flexing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--darkmode-bg);
   margin-bottom: 20px;
   padding: 30px 20px;
   border-radius: 10px;
@@ -390,8 +486,13 @@ Transaction List
   margin-bottom: 0px !important;
   text-transform: capitalize;
 }
-.name p:first-child {
+.App.light .name p:first-child {
   color: var(--text-color);
+  font-size: 20px;
+  font-weight: 500;
+}
+.App.dark .name p:first-child {
+  color: var(--white-color);
   font-size: 20px;
   font-weight: 500;
 }
@@ -503,8 +604,16 @@ Cards Design
 /*==============
 Send Money Side 
 ===============*/
-.money-content {
+.App.light .money-content {
   background: var(--white-color);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  margin-right: 15px;
+  cursor: pointer;
+}
+.App.dark .money-content {
+  background: var(--darkmode-bg);
   padding: 10px 15px;
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -517,19 +626,40 @@ Send Money Side
   border-radius: 10px;
   object-fit: cover;
 }
-.money-content p {
+.App.light .money-content p {
   margin-bottom: 0px !important;
   text-transform: capitalize;
   text-align: center;
   padding-top: 10px;
   font-weight: 500;
 }
+.App.dark .money-content p {
+  margin-bottom: 0px !important;
+  text-transform: capitalize;
+  text-align: center;
+  padding-top: 10px;
+  font-weight: 500;
+  color: var(--white-color);
+}
 /*=================
  Monthly Bill Side 
 ===================*/
 
-.monthly-bill-contnent {
+.App.light .monthly-bill-contnent {
   background: var(--white-color);
+  box-shadow: var(--shadow);
+  padding: 22px 20px;
+  border-radius: 10px;
+  margin-right: 20px;
+  text-align: center;
+  min-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.App.dark .monthly-bill-contnent {
+  background: var(--darkmode-bg);
   box-shadow: var(--shadow);
   padding: 22px 20px;
   border-radius: 10px;
@@ -570,9 +700,18 @@ Send Money Side
   text-transform: capitalize;
   text-align: center;
 }
-.monthly-bill-contnent .month-price {
+.App.light .monthly-bill-contnent .month-price {
   font-size: 22px !important;
   font-weight: 500;
+}
+.App.dark .monthly-bill-contnent .month-price {
+  font-size: 22px !important;
+  font-weight: 500;
+  color: var(--white-color);
+}
+.App.dark .monthly-bill-contnent .month-price .naira::before,
+.App.dark .monthly-bill-contnent .month-price .naira::after {
+  background: var(--white-color);
 }
 .monthly-bill-contnent .month-desc {
   color: var(--text-grey) !important;
@@ -599,8 +738,14 @@ Send Money Side
   grid-template-columns: minmax(0, 1fr);
   gap: 20px;
 }
-.saving-container {
+.App.light .saving-container {
   background: var(--white-color);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  padding: 20px 40px;
+}
+.App.dark .saving-container {
+  background: var(--darkmode-bg);
   border-radius: 10px;
   box-shadow: var(--shadow);
   padding: 20px 40px;
@@ -613,22 +758,46 @@ Send Money Side
   margin-bottom: 0px !important;
   text-transform: capitalize;
 }
-.saving-top p:last-child {
+.App.light .saving-top p:last-child {
   font-size: 22px !important;
   font-weight: 500;
 }
-.saving-text p:first-child {
+.App.dark .saving-top p:last-child {
   font-size: 22px !important;
   font-weight: 500;
+  color: var(--white-color);
+}
+.App.dark .saving-top p:last-child .naira::before,
+.App.dark .saving-top p:last-child .naira::after {
+  background: var(--white-color);
+}
+.App.light .saving-text p:first-child {
+  font-size: 22px !important;
+  font-weight: 500;
+}
+.App.dark .saving-text p:first-child {
+  font-size: 22px !important;
+  font-weight: 500;
+  color: var(--white-color);
 }
 .saving-text p:last-child {
-  font-size: 15px !important;
+  font-size: 10px !important;
   font-weight: 500;
-  color: var(--text-grey);
+  color: var(--text-grey) !important;
 }
-.saving-progress {
+.App.light .saving-progress {
   margin-top: 20px;
   background: #eee;
+  height: 14px;
+  width: 100%;
+  font-size: 10px !important;
+  color: var(--white-color);
+  border-radius: 500px;
+  overflow: hidden;
+}
+.App.dark .saving-progress {
+  margin-top: 20px;
+  background: #372648;
   height: 14px;
   width: 100%;
   font-size: 10px !important;
@@ -660,8 +829,17 @@ Latest News
 .latest::-webkit-scrollbar {
   display: none;
 }
-.latest-box {
+.App.light .latest-box {
   background: var(--white-color);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  min-width: 297.667px;
+  text-transform: capitalize;
+  margin-right: 20px;
+}
+.App.dark .latest-box {
+  background: var(--darkmode-bg);
   border-radius: 15px;
   box-shadow: var(--shadow);
   overflow: hidden;
@@ -676,16 +854,22 @@ Latest News
 .latest-bottom {
   margin: 30px 0;
 }
-.latest-bottom p {
+.App.light .latest-bottom p {
   margin-bottom: 0px !important;
   font-size: 18px !important;
   font-weight: 500;
   color: var(--text-color);
 }
+.App.dark .latest-bottom p {
+  margin-bottom: 0px !important;
+  font-size: 18px !important;
+  font-weight: 500;
+  color: var(--white-color);
+}
 /*============ 
 Footer 
 ============*/
-footer {
+.App.light footer {
   background: var(--white-color);
   padding: 20px;
   text-align: center;
@@ -693,31 +877,62 @@ footer {
   margin-top: 40px;
   margin-bottom: 68px;
 }
-footer p {
+.App.dark footer {
+  background: var(--darkmode-bg);
+  padding: 20px;
+  text-align: center;
+  font-weight: 500;
+  margin-top: 40px;
+  margin-bottom: 68px;
+}
+.App.light footer p {
   margin-bottom: 0px !important;
+}
+.App.dark footer p {
+  margin-bottom: 0px !important;
+  color: var(--white-color);
 }
 /*============= 
 Bottom Navbar 
 ==============*/
-.bottom.navbar {
+.App.light .bottom.navbar {
   background: var(--white-color);
   bottom: 0;
   text-align: center;
   font-size: 18px !important;
   border-top: 2px solid var(--text-grey);
+  z-index: 10 !important;
+}
+.App.dark .bottom.navbar {
+  background: var(--darkmode-bg);
+  bottom: 0;
+  text-align: center;
+  font-size: 18px !important;
+  border-top: 2px solid #2d1f3b;
+  z-index: 10 !important;
 }
 .bottom.navbar p {
   font-size: 14px !important;
 }
-.pain {
+.App.light .pain {
   cursor: pointer;
   transition: 250ms ease-in-out;
   color: var(--text-color) !important;
 }
+.App.dark .pain {
+  cursor: pointer;
+  transition: 250ms ease-in-out;
+  color: var(--white-color);
+}
 .pain:hover {
   color: var(--purple-color);
 }
-.pain.active {
+.App.light .pain.active {
+  color: var(--purple-color) !important;
+  position: relative;
+  font-weight: 600;
+}
+.App.dark .pain.active {
   color: var(--purple-color) !important;
   position: relative;
   font-weight: 600;
@@ -739,14 +954,20 @@ Sidebar
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.18);
-  z-index: 20;
+  z-index: 81;
   animation: fadeInDown 1s ease;
 }
 .modale-back.active {
   animation: fadeOutDown 1s ease;
 }
-.modale-body {
+.App.light .modale-body {
   background: var(--white-color);
+  max-height: 100%;
+  overflow-y: scroll;
+  max-width: 300px;
+}
+.App.dark .modale-body {
+  background: var(--darkmode-bg);
   max-height: 100%;
   overflow-y: scroll;
   max-width: 300px;
@@ -770,9 +991,14 @@ Sidebar
   border-radius: 10px;
   overflow: hidden;
 }
-.modal-info-text p:first-child {
+.App.light .modal-info-text p:first-child {
   font-size: 19px !important;
   color: var(--text-color);
+  font-weight: 600;
+}
+.App.dark .modal-info-text p:first-child {
+  font-size: 19px !important;
+  color: var(--white-color);
   font-weight: 600;
 }
 .modal-info-text p:last-child {
@@ -845,8 +1071,14 @@ Sidebar
   justify-content: space-between;
   align-items: center;
 }
-.menu-list p {
+.App.light .menu-list p {
   color: var(--text-color);
+  font-size: 16px !important;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+.App.dark .menu-list p {
+  color: var(--white-color);
   font-size: 16px !important;
   text-transform: capitalize;
   font-weight: 600;
@@ -893,13 +1125,24 @@ Sidebar
 /*=========================================
 DESIGN FOR PAGES, COMPONENT, AND OTHRES
 ===========================================*/
-.page.navbar {
+.App.light .page.navbar {
   background: var(--white-color) !important;
   color: var(--text-color);
   font-size: 19px !important;
   font-weight: 500;
   text-align: center;
   display: block;
+}
+.App.dark .page.navbar {
+  background: var(--darkmode-bg) !important;
+  color: var(--text-color);
+  font-size: 19px !important;
+  font-weight: 500;
+  text-align: center;
+  display: block;
+}
+.App.dark .other-page-title {
+  color: var(--white-color);
 }
 .paid-awaiting {
   display: grid !important;
@@ -937,11 +1180,16 @@ DESIGN FOR PAGES, COMPONENT, AND OTHRES
 .page-list {
   padding-top: 70px;
 }
-.linear .MuiSvgIcon-root {
+.App.light .linear .MuiSvgIcon-root {
   font-size: 13px !important;
   margin-right: 15px;
 }
-.linear {
+.App.dark .linear .MuiSvgIcon-root {
+  font-size: 13px !important;
+  margin-right: 15px;
+  color: var(--white-color);
+}
+.App.light .linear {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -949,22 +1197,49 @@ DESIGN FOR PAGES, COMPONENT, AND OTHRES
   padding: 15px 0;
   cursor: pointer;
 }
+.App.dark .linear {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #2d1f3b;
+  padding: 15px 0;
+  cursor: pointer;
+}
+
 .page-items li:last-child .linear {
   border: none;
 }
-.linear p {
+.App.light .linear p {
   font-size: 15px !important;
   font-weight: 500;
   margin-bottom: 0px !important;
   text-transform: capitalize;
+}
+.App.dark .linear p {
+  font-size: 15px !important;
+  font-weight: 500;
+  margin-bottom: 0px !important;
+  text-transform: capitalize;
+  color: var(--white-color);
 }
 .linear input {
   width: 70px !important;
   margin-right: 15px;
   padding: 15px 0px !important;
 }
-.page-items {
+
+.App.light .page-items {
   background: var(--white-color);
+  padding-top: 10px;
+  padding-left: 15px !important;
+  border-radius: 13px;
+  box-shadow: var(--shadow);
+  padding-bottom: 10px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+.App.dark .page-items {
+  background: var(--darkmode-bg);
   padding-top: 10px;
   padding-left: 15px !important;
   border-radius: 13px;
@@ -991,6 +1266,7 @@ DESIGN FOR PAGES, COMPONENT, AND OTHRES
 }
 .other-page-title {
   text-transform: capitalize;
+  color: var(--purple-color);
 }
 /*======================== 
 Page _- COMOPNENT Styling 
@@ -1000,8 +1276,15 @@ Page _- COMOPNENT Styling
   grid-template-columns: minmax(0, 1fr);
   gap: 20px;
 }
-.component-text {
+.App.light .component-text {
   background: var(--white-color);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  margin-bottom: 15px;
+}
+.App.dark .component-text {
+  background: var(--darkmode-bg);
   padding: 10px;
   border-radius: 10px;
   box-shadow: var(--shadow);
@@ -1014,10 +1297,16 @@ Page _- COMOPNENT Styling
   font-weight: 500;
   color: var(--text-grey);
 }
-.component-text header {
+.App.light .component-text header {
   font-size: 19px !important;
   font-weight: 600;
   text-transform: capitalize;
+}
+.App.dark .component-text header {
+  font-size: 19px !important;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--white-color);
 }
 .page-list .card-box {
   min-width: 100% !important;
@@ -1099,11 +1388,18 @@ TRANSCTION ALL PAGE
 .transaction-all-page .for-flexing:hover {
   transform: scale(1);
 }
-.trans-list label {
+.App.light .trans-list label {
   font-size: 19px !important;
   font-weight: 500;
   text-transform: capitalize;
   margin: 19px 0;
+}
+.App.dark .trans-list label {
+  font-size: 19px !important;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin: 19px 0;
+  color: var(--white-color);
 }
 .trans-list button {
   background: var(--purple-color);
@@ -1160,19 +1456,29 @@ STYLING FOR POPUPS
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.23);
-  z-index: 7;
+  z-index: 100;
 }
-.index-modal-body {
+.App.light .index-modal-body {
   background: var(--white-color);
   position: absolute;
   bottom: 0;
   width: 100%;
   z-index: 8;
 }
-.index-body-title {
+.App.dark .index-modal-body {
+  background: var(--darkmode-bg);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 100;
+}
+.App.light .index-body-title {
   border-bottom: 2px #eee solid;
 }
-.index-body-title p {
+.App.dark .index-body-title {
+  border-bottom: 2px solid #2d1f3b;
+}
+.App.light .index-body-title p {
   margin-bottom: 0px !important;
   text-align: center;
   color: var(--text-color);
@@ -1181,24 +1487,44 @@ STYLING FOR POPUPS
   font-size: 19px !important;
   font-weight: 500;
 }
+.App.dark .index-body-title p {
+  margin-bottom: 0px !important;
+  text-align: center;
+  color: var(--white-color);
+  padding: 10px 0;
+  text-transform: capitalize;
+  font-size: 19px !important;
+  font-weight: 500;
+}
 .index-body-content {
   padding: 15px 20px;
 }
-.index-modal-inputs {
+.App.light .index-modal-inputs {
   border-bottom: 2px solid #eee;
+  margin-bottom: 10px;
+  position: relative;
+}
+.App.dark .index-modal-inputs {
+  border-bottom: 2px solid #2d1f3b;
   margin-bottom: 10px;
   position: relative;
 }
 .index-modal-inputs a {
   font-size: 13px;
 }
-.index-modal-inputs p {
+.App.light .index-modal-inputs p {
   margin-bottom: 10px !important;
   text-transform: capitalize;
   font-weight: 500;
 }
-.index-modal-inputs input,
-.index-modal-inputs select {
+.App.dark .index-modal-inputs p {
+  margin-bottom: 10px !important;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: var(--white-color);
+}
+.App.light .index-modal-inputs input,
+.App.light.index-modal-inputs select {
   width: 100%;
   background: none;
   border: none;
@@ -1207,7 +1533,17 @@ STYLING FOR POPUPS
   position: relative;
   margin-bottom: -2px;
 }
-
+.App.dark .index-modal-inputs input,
+.App.dark .index-modal-inputs select {
+  width: 100%;
+  background: none;
+  border: none;
+  text-transform: capitalize;
+  padding: 10px 6px;
+  position: relative;
+  margin-bottom: -2px;
+  color: var(--white-color);
+}
 .index-modal-inputs input:focus,
 .index-modal-inputs select:focus {
   outline: none;
@@ -1229,16 +1565,28 @@ STYLING FOR POPUPS
 /*===========================
 STYLING FOR DETAIL PAGE
 =============================*/
-.details .page.navbar {
+.App.light .details .page.navbar {
   border-bottom: 2px solid #eee;
 }
-.detail-body {
+.App.dark .details .page.navbar {
+  border-bottom: 2px solid #2d1f3b;
+}
+.App.light .detail-body {
   background: var(--white-color);
   height: 90vh;
 }
-.detail-body p {
+.App.dark .detail-body {
+  background: var(--darkmode-bg);
+  height: 90vh;
+}
+.App.light .detail-body p {
   margin-bottom: 0px !important;
   text-transform: capitalize;
+}
+.App.dark .detail-body p {
+  margin-bottom: 0px !important;
+  text-transform: capitalize;
+  color: var(--white-color);
 }
 .detail-send {
   display: flex;
@@ -1264,8 +1612,15 @@ STYLING FOR DETAIL PAGE
   padding: 0px !important;
   margin: 0px !important;
 }
-.detail-lines {
+.App.light .detail-lines {
   border-bottom: 2px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+}
+.App.dark .detail-lines {
+  border-bottom: 2px solid #2d1f3b;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1284,9 +1639,13 @@ STYLE FOR NOTIFICATION PAGE AND NOTIFICATION DETAILS
 .notifications .page-list {
   padding-top: 49px !important;
 }
-.notify-list {
+.App.light .notify-list {
   background: var(--white-color);
   border-top: 2px solid #eee;
+}
+.App.dark .notify-list {
+  background: var(--darkmode-bg);
+  border-top: 2px solid #2d1f3b;
 }
 .icn {
   display: flex;
@@ -1307,11 +1666,18 @@ STYLE FOR NOTIFICATION PAGE AND NOTIFICATION DETAILS
 .notify-list li:nth-child(4) .icn {
   background: var(--yellow-color);
 }
-.contidet {
+.App.light .contidet {
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 2px solid #eee !important;
+  padding: 10px 0;
+}
+.App.dark .contidet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #2d1f3b !important;
   padding: 10px 0;
 }
 .contidet:last-child {
@@ -1321,10 +1687,16 @@ STYLE FOR NOTIFICATION PAGE AND NOTIFICATION DETAILS
   margin-bottom: 0px !important;
   color: var(--text-color);
 }
-.contidet p:nth-child(1) {
+.App.light .contidet p:nth-child(1) {
   font-size: 20px !important;
   text-transform: capitalize;
   font-weight: 600;
+}
+.App.dark .contidet p:nth-child(1) {
+  font-size: 20px !important;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: var(--white-color);
 }
 .contidet p:nth-child(2),
 .contidet p:nth-child(3) {
@@ -1352,8 +1724,12 @@ STYLE FOR NOTIFICATION PAGE AND NOTIFICATION DETAILS
   align-items: center;
   justify-content: center;
 }
-.number-of-times .MuiSvgIcon-root {
+.App.light .number-of-times .MuiSvgIcon-root {
   font-size: 16px !important;
+}
+.App.dark .number-of-times .MuiSvgIcon-root {
+  font-size: 16px !important;
+  color: var(--white-color);
 }
 .list-task {
   display: grid;
@@ -1361,8 +1737,12 @@ STYLE FOR NOTIFICATION PAGE AND NOTIFICATION DETAILS
   gap: 20px;
   align-items: center;
 }
-.notify-list .active {
+.App.light .notify-list .active {
   background: rgba(220, 220, 233, 0.3);
+  width: 100%;
+}
+.App.dark .notify-list .active {
+  background: #201a3a;
   width: 100%;
 }
 /*======================

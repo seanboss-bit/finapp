@@ -6,6 +6,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Link } from "react-router-dom";
+import NotificationsOffIcon from "@mui/icons-material/NotificationsOff";
 
 const Notification = () => {
   const [loading, setLoading] = useState(false);
@@ -30,7 +31,9 @@ const Notification = () => {
                 <ArrowBackIosIcon />
               </Link>
               <div className="other-page-title">notifications</div>
-              <div className="other-needed-things"></div>
+              <div className="other-needed-things">
+                <NotificationsOffIcon />
+              </div>
             </div>
           </div>
           <div className="page-list">

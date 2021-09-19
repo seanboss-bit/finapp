@@ -7,7 +7,7 @@ import Brightness3Icon from "@material-ui/icons/Brightness3";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { Link } from "react-router-dom";
 
-const Settings = () => {
+const Settings = ({ darkMode, setDarkMode }) => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
@@ -65,6 +65,10 @@ const Settings = () => {
                         className="form-check-input"
                         type="checkbox"
                         id="flexSwitchCheckChecked"
+                        checked={darkMode ? true : false}
+                        onChange={(e) => {
+                          setDarkMode(!darkMode);
+                        }}
                       />
                     </div>
                   </div>

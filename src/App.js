@@ -13,49 +13,61 @@ import Component from "./components/Component";
 import Settings from "./components/Settings";
 import Notification from "./components/Notification";
 import NotificationDetail from "./components/NotificationDetail";
+import { useState, useEffect } from "react";
 function App() {
+  const LOCAL_STORAGE_KEY = "sean-boss";
+  const [darkMode, setDarkMode] = useState(false);
+  useEffect(() => {
+    const facts = window.localStorage.getItem(LOCAL_STORAGE_KEY);
+    setDarkMode(JSON.parse(facts));
+  }, []);
+  useEffect(() => {
+    window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(darkMode));
+  });
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/detail">
-          <Detail />
-        </Route>
-        <Route exact path="/transactions/all">
-          <TransactionAll />
-        </Route>
-        <Route exact path="/cards/all">
-          <CardAll />
-        </Route>
-        <Route exact path="/monthlybills/all">
-          <MonthlyBills />
-        </Route>
-        <Route exact path="/saving/all">
-          <SavingAll />
-        </Route>
-        <Route exact path="/latest-news/all">
-          <LatestNews />
-        </Route>
-        <Route exact path="/pages">
-          <Pages />
-        </Route>
-        <Route exact path="/components">
-          <Component />
-        </Route>
-        <Route exact path="/settings">
-          <Settings />
-        </Route>
-        <Route exact path="/notification">
-          <Notification />
-        </Route>
-        <Route exact path="/notification-detail">
-          <NotificationDetail />
-        </Route>
-      </Switch>
-      <BottomNavbar />
-    </Router>
+    <div className={darkMode ? "App dark" : "App light"}>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/detail">
+            <Detail />
+          </Route>
+          <Route exact path="/transactions/all">
+            <TransactionAll />
+          </Route>
+          <Route exact path="/cards/all">
+            <CardAll />
+          </Route>
+          <Route exact path="/monthlybills/all">
+            <MonthlyBills />
+          </Route>
+          <Route exact path="/saving/all">
+            <SavingAll />
+          </Route>
+          <Route exact path="/latest-news/all">
+            <LatestNews />
+          </Route>
+          <Route exact path="/pages">
+            <Pages darkMode={darkMode} setDarkMode={setDarkMode}/>
+          </Route>
+          <Route exact path="/components">
+            <Component />
+          </Route>
+          <Route exact path="/settings">
+            <Settings darkMode={darkMode} setDarkMode={setDarkMode}/>
+          </Route>
+          <Route exact path="/notification">
+            <Notification />
+          </Route>
+          <Route exact path="/notification-detail">
+            <NotificationDetail />
+          </Route>
+        </Switch>
+        <BottomNavbar />
+      </Router>
+    </div>
   );
 }
 

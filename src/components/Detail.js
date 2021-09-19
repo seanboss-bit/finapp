@@ -26,7 +26,7 @@ const Detail = () => {
               <Link to="/" className="back-to">
                 <ArrowBackIosIcon />
               </Link>
-              <div className="other-page-title">my savings</div>
+              <div className="other-page-title">trasaction detils</div>
               <div className="other-needed-things">
                 <DeleteOutlineOutlinedIcon />
               </div>

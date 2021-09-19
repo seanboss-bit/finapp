@@ -4,7 +4,7 @@ import PageList from "./PageList";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import Brightness3Icon from "@material-ui/icons/Brightness3";
 import { Link } from "react-router-dom";
-const Pages = () => {
+const Pages = ({ darkMode, setDarkMode }) => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
@@ -30,7 +30,7 @@ const Pages = () => {
               <div className="other-needed-things"></div>
             </div>
           </div>
-          <div className="page-list">
+          <div className="page-list mb-s2">
             <PageList title="App Pages">
               <ul className="page-items">
                 <li>
@@ -292,6 +292,8 @@ const Pages = () => {
                           className="form-check-input"
                           type="checkbox"
                           id="flexSwitchCheckChecked"
+                          checked={darkMode ? true : false}
+                          onChange={() => setDarkMode(!darkMode)}
                         />
                       </div>
                     </div>
@@ -315,7 +317,7 @@ const Pages = () => {
               </ul>
             </PageList>
             <PageList title="Others">
-              <ul className="page-items mb-s2">
+              <ul className="page-items">
                 <li>
                   <div className="first-grid">
                     <div className="trans-inn bg-teal">
