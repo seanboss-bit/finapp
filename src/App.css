@@ -1524,7 +1524,7 @@ STYLING FOR POPUPS
   color: var(--white-color);
 }
 .App.light .index-modal-inputs input,
-.App.light.index-modal-inputs select {
+.App.light .index-modal-inputs select{
   width: 100%;
   background: none;
   border: none;

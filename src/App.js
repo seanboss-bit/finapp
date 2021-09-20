@@ -53,7 +53,7 @@ function App() {
             <Pages darkMode={darkMode} setDarkMode={setDarkMode}/>
           </Route>
           <Route exact path="/components">
-            <Component />
+            <Component darkMode={darkMode} setDarkMode={setDarkMode}/>
           </Route>
           <Route exact path="/settings">
             <Settings darkMode={darkMode} setDarkMode={setDarkMode}/>
