@@ -21,7 +21,7 @@ const Component = ({ darkMode, setDarkMode }) => {
           <img src="/images/loading-icon.png" alt="#" />
         </div>
       ) : (
-        <div>
+        <div className="mb-s2">
           <div className="page navbar">
             <div className="container">
               <Link to="/" className="back-to">
@@ -66,7 +66,7 @@ const Component = ({ darkMode, setDarkMode }) => {
             </ul>
           </PageList>
           <PageList title="App Pages">
-            <ul className="page-items mb-s2">
+            <ul className="page-items ">
               <li>
                 <div className="first-grid">
                   <div className="trans-inn">

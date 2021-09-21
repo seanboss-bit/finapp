@@ -1237,6 +1237,7 @@ DESIGN FOR PAGES, COMPONENT, AND OTHRES
   padding-bottom: 10px;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
+  transition: 300ms all ease-out;
 }
 .App.dark .page-items {
   background: var(--darkmode-bg);
@@ -1247,6 +1248,7 @@ DESIGN FOR PAGES, COMPONENT, AND OTHRES
   padding-bottom: 10px;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
+  transition: 300ms all ease-out;
 }
 .page-items:first-child .trans-inn {
   background: var(--purple-color);
@@ -1543,6 +1545,9 @@ STYLING FOR POPUPS
   position: relative;
   margin-bottom: -2px;
   color: var(--white-color);
+}
+.App.dark .index-modal-inputs select{
+  color: var(--text-grey);
 }
 .index-modal-inputs input:focus,
 .index-modal-inputs select:focus {
