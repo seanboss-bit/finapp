@@ -103,7 +103,7 @@ Custom css
 .text-red {
   color: var(--red-color) !important;
 }
-.bg-purple{
+.bg-purple {
   background: var(--purple-color) !important;
 }
 .bg-teal {
@@ -1526,7 +1526,7 @@ STYLING FOR POPUPS
   color: var(--white-color);
 }
 .App.light .index-modal-inputs input,
-.App.light .index-modal-inputs select{
+.App.light .index-modal-inputs select {
   width: 100%;
   background: none;
   border: none;
@@ -1546,7 +1546,7 @@ STYLING FOR POPUPS
   margin-bottom: -2px;
   color: var(--white-color);
 }
-.App.dark .index-modal-inputs select{
+.App.dark .index-modal-inputs select {
   color: var(--text-grey);
 }
 .index-modal-inputs input:focus,
@@ -1750,10 +1750,124 @@ STYLE FOR NOTIFICATION PAGE AND NOTIFICATION DETAILS
   background: #201a3a;
   width: 100%;
 }
+/*========================
+BLOG STYLING
+==========================*/
+.App.light .blog-heading {
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.App.dark .blog-heading {
+  text-transform: capitalize;
+  margin-bottom: 20px;
+  color: var(--white-color);
+}
+.blog-author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.blog-auth-left {
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+  gap: 15px;
+  align-items: center;
+}
+.blog-auth-left img {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+.blog-author p {
+  margin-bottom: 0px !important;
+  text-transform: capitalize;
+  color: var(--text-grey);
+}
+.blog-author span {
+  color: var(--purple-color);
+  font-weight: 500;
+}
+.blog-body {
+  color: var(--text-grey);
+  font-weight: 500;
+}
+.first-line {
+  font-size: 22px;
+  font-weight: 500;
+}
+.second-line {
+  font-size: 18px;
+}
+.under-pic {
+  font-weight: 500;
+  font-size: 18px;
+}
+.App.light .sub-title {
+  color: var(--text-color);
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 15px;
+  text-transform: capitalize;
+}
+.App.dark .sub-title {
+  color: var(--white-color);
+  font-size: 26px;
+  font-weight: 600;
+  margin-top: 15px;
+  text-transform: capitalize;
+}
+.blog-body img {
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+.blog .homeincexp img {
+  border-radius: 0px;
+}
+.blog .latest-box {
+  min-width: 100% !important;
+}
+.blog.index-modal {
+  background: rgba(0, 0, 0, 0.5);
+}
+.App.light .share-body {
+  background: var(--white-color);
+  position: fixed;
+  bottom: 0.75rem;
+  border-radius: 15px;
+  width: 93%;
+}
+.App.dark .share-body {
+  background: var(--darkmode-bg);
+  position: fixed;
+  bottom: 0.75rem;
+  border-radius: 15px;
+  width: 93%;
+  color: var(--white-color);
+}
+.App.light .share-body .MuiSvgIcon-root,
+.App.light .share-body i {
+  font-size: 25px !important;
+  margin-right: 10px;
+}
+.App.dark .share-body .MuiSvgIcon-root,
+.App.dark .share-body i {
+  font-size: 25px !important;
+  margin-right: 10px;
+  color: var(--white-color);
+}
+
+.social-media {
+  padding: 10px 15px;
+  text-transform: capitalize;
+}
 /*======================
 MEDIA QUERIES
 =======================*/
 @media screen and (max-width: 700px) {
+  .blog .homeincexp {
+    grid-template-columns: 1fr;
+  }
   .saving-all .saving-top p {
     font-size: 17px !important;
   }
@@ -1806,5 +1920,11 @@ MEDIA QUERIES
   }
   .top p:last-child .naira {
     font-size: 25px;
+  }
+  .latest-news-all .homeincexp {
+    grid-template-columns: 1fr;
+  }
+  .latest-news-all .latest-box {
+    margin-right: 0px !important;
   }
 }

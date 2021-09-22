@@ -14,6 +14,7 @@ import Settings from "./components/Settings";
 import Notification from "./components/Notification";
 import NotificationDetail from "./components/NotificationDetail";
 import { useState, useEffect } from "react";
+import LatestNewsInfo from "./components/LatestNewsInfo";
 function App() {
   const LOCAL_STORAGE_KEY = "sean-boss";
   const [darkMode, setDarkMode] = useState(false);
@@ -50,19 +51,22 @@ function App() {
             <LatestNews />
           </Route>
           <Route exact path="/pages">
-            <Pages darkMode={darkMode} setDarkMode={setDarkMode}/>
+            <Pages darkMode={darkMode} setDarkMode={setDarkMode} />
           </Route>
           <Route exact path="/components">
-            <Component darkMode={darkMode} setDarkMode={setDarkMode}/>
+            <Component darkMode={darkMode} setDarkMode={setDarkMode} />
           </Route>
           <Route exact path="/settings">
-            <Settings darkMode={darkMode} setDarkMode={setDarkMode}/>
+            <Settings darkMode={darkMode} setDarkMode={setDarkMode} />
           </Route>
           <Route exact path="/notification">
             <Notification />
           </Route>
           <Route exact path="/notification-detail">
             <NotificationDetail />
+          </Route>
+          <Route eaxct path="/latest-news/detail">
+            <LatestNewsInfo />
           </Route>
         </Switch>
         <BottomNavbar />
