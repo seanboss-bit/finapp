@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Homecard from "./Homecard";
-import Homeexpinc from "./Homeexpinc";
-import HomeLatestNews from "./HomeLatestNews";
-import HomeMonthlyBills from "./HomeMonthlyBills";
-import Homenav from "./Homenav";
-import HomeSaving from "./HomeSaving";
-import Homeshow from "./Homeshow";
-import Hometransactions from "./Hometransactions";
-import SendMoney from "./SendMoney";
+import Homecard from "../components/Homecard";
+import Homeexpinc from "../components/Homeexpinc";
+import HomeLatestNews from "../components/HomeLatestNews";
+import HomeMonthlyBills from "../components/HomeMonthlyBills";
+import Homenav from "../components/Homenav";
+import HomeSaving from "../components/HomeSaving";
+import Homeshow from "../components/Homeshow";
+import Hometransactions from "../components/Hometransactions";
+import SendMoney from "../components/SendMoney";
 
-const Home = () => {
+const Home = ({ transactions }) => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
@@ -29,7 +29,7 @@ const Home = () => {
           <Homenav />
           <Homeshow />
           <Homeexpinc />
-          <Hometransactions />
+          <Hometransactions transactions={transactions} />
           <Homecard />
           <SendMoney />
           <HomeMonthlyBills />

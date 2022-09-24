@@ -5,10 +5,13 @@ import SettingsIcon from "@material-ui/icons/Settings";
 import { useHistory } from "react-router-dom";
 
 const BottomNavbar = () => {
+  // eslint-disable-next-line
   const [overView, setOverView] = useState(true);
   const [pages, setPages] = useState(false);
   const [component, setComponent] = useState(false);
+  // eslint-disable-next-line
   const [card, setCard] = useState(false);
+  // eslint-disable-next-line
   const [set, setSet] = useState(false);
   const history = useHistory();
 
@@ -97,7 +100,9 @@ const BottomNavbar = () => {
     <div className="bottom navbar">
       <div className="container">
         <div
-          className={overView ? "pain active" : "pain"}
+          className={
+            history.location.pathname === "/dashboard" ? "pain active" : "pain"
+          }
           onClick={() => toHome()}
         >
           <i className="fas fa-chart-pie"></i>
@@ -118,14 +123,18 @@ const BottomNavbar = () => {
           <p>components</p>
         </div>
         <div
-          className={card ? "pain active" : "pain"}
+          className={
+            history.location.pathname === "/cards/all" ? "pain active" : "pain"
+          }
           onClick={() => toCards()}
         >
           <CreditCardIcon />
           <p>my cards</p>
         </div>
         <div
-          className={set ? "pain active" : "pain"}
+          className={
+            history.location.pathname === "/settings" ? "pain active" : "pain"
+          }
           onClick={() => toSettings()}
         >
           <SettingsIcon />

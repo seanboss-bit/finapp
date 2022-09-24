@@ -606,11 +606,14 @@ Send Money Side
 ===============*/
 .App.light .money-content {
   background: var(--white-color);
+  color: #333;
   padding: 10px 15px;
   border-radius: 8px;
   box-shadow: var(--shadow);
   margin-right: 15px;
   cursor: pointer;
+  height: 200px;
+  width: fit-content;
 }
 .App.dark .money-content {
   background: var(--darkmode-bg);
@@ -1860,6 +1863,136 @@ BLOG STYLING
 .social-media {
   padding: 10px 15px;
   text-transform: capitalize;
+}
+
+/*==========================
+LOGIN PAGE  
+============================*/
+.login-inner{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.top-name{
+  height: 35%;
+  padding-top:  10%;
+}
+.top-name h3{
+  text-transform: capitalize;
+text-align: center;
+}
+.top-name p{
+  text-transform: capitalize;
+}
+.bottom-inputs{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+.main-form{
+  background-color: var(--white-color);
+  padding: 20px 10px;
+  border-radius: 10px;
+  padding-bottom: 40px;
+}
+.main-form span{
+  display: block;
+  text-transform: capitalize;
+  padding: 10px 0px;
+}
+.main-form input{
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--grey-color);
+  transition: .2s all ease;
+}
+.main-form input:focus{
+  outline: none;
+  border-bottom: 2px solid var(--purple-color);
+}
+.mainInput{
+  display: flex;
+  flex-direction: column-reverse;
+}
+.mainInput input:focus ~ span{
+  color: var(--purple-color);
+}
+.btn-for-form{
+  padding: 20px 0px;
+}
+.btn-for-form button{
+  width: 100%;
+  padding: 8px ;
+  text-transform: capitalize;
+  background-color: var(--purple-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 4px ;
+}
+.reg-fog{
+  margin-top: 10px;
+  text-align: right;
+  text-transform: capitalize;
+  color: var(--purple-color);
+}
+.money-content p{
+  text-transform: lowercase !important;
+  font-size: 14px;
+}
+.App.light .four-box{
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  padding: 20px 10px;
+  background-color: var(--white-color);
+  margin-bottom: 30px;
+}
+.App.dark .four-box{
+background-color: var(--darkmode-bg);
+}
+.four-box-content h6{
+  margin: 0px !important;
+  text-transform: capitalize;
+  color: var(--purple-color);
+  font-weight: 600;
+}
+.four-box-content span{
+  text-transform: capitalize;
+}
+.switchTable button{
+  background: var(--purple-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 10px;
+  padding:8px 20px;
+  text-transform: capitalize;
+  margin-right: 10px;
+}
+.switchTable {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.switchTable button.active{
+  background: #eee;
+  border-bottom: 1px solid var(--purple-color);
+  border-radius: 0px;
+  color: var(--purple-color);
+}
+.table-side{
+  padding-bottom: 200px;
+}
+.backtoHo{
+  color: var(--purple-color) !important;
+  padding: 20px 0px;
+  cursor: pointer;
 }
 /*======================
 MEDIA QUERIES
