@@ -20,6 +20,7 @@ const MerchantSingle = () => {
   const [rows, setInflowData] = useState([]);
   const [outflowData, setOutflowData] = useState([]);
   const [change, setChange] = useState(false);
+  const [balance, setBalance] = useState({});
   useEffect(() => {
     const getSingleMerchant = async () => {
       try {
@@ -28,7 +29,10 @@ const MerchantSingle = () => {
         const res = await publicRequest(
           `/coralpay/pos/queryalltransaction/phone/${id}`
         );
-
+        const bal = await publicRequest(
+          `https://safe-payy.herokuapp.com/coralpay/pos/wallet/checkbalance/${id}`
+        );
+        setBalance(bal.data.data);
         setInflowData(res.data.inflow);
         setOutflowData(res.data.outflow);
       } catch (error) {
@@ -67,11 +71,11 @@ const MerchantSingle = () => {
           </div>
           <div className="four-box-content">
             <h6>book balance</h6>
-            <span>something</span>
+            <span>{balance.book_balance}</span>
           </div>
           <div className="four-box-content">
             <h6>available balance</h6>
-            <span>something</span>
+            <span>{balance.available_balance}</span>
           </div>
         </div>
         <div className="table-side">

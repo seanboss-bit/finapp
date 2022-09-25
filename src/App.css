@@ -1986,7 +1986,7 @@ display: grid;
   font-weight: 600;
 }
 .four-box-content span{
-  text-transform: capitalize;
+  text-transform: lowercase;
 }
 .switchTable button{
   background: var(--purple-color);

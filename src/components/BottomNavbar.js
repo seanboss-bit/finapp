@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SettingsIcon from "@material-ui/icons/Settings";
 import { useLocation, Link } from "react-router-dom";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import PersonIcon from '@mui/icons-material/Person';
+import PersonIcon from "@mui/icons-material/Person";
 
 const BottomNavbar = () => {
   // eslint-disable-next-line
@@ -47,7 +47,10 @@ const BottomNavbar = () => {
           <TrendingUpIcon />
           <p>transaction</p>
         </Link>
-        <Link to={"/merchnts"} className={set ? "pain active" : "pain"}>
+        <Link
+          to={"/merchants"}
+          className={history.pathname === "/merchants" ? "pain active" : "pain"}
+        >
           <PersonIcon />
           <p>merchants</p>
         </Link>
@@ -55,7 +58,6 @@ const BottomNavbar = () => {
           <SettingsIcon />
           <p>settings</p>
         </Link>
-        
       </div>
     </div>
   );
