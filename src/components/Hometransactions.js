@@ -33,7 +33,7 @@ const Hometransactions = ({ transactions }) => {
             <TableBody>
               {transactions?.slice(0, 4).map((row) => (
                 <TableRow
-                  key={row.name}
+                  key={row.paymentref}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">

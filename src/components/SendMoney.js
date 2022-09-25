@@ -23,8 +23,8 @@ const SendMoney = () => {
   return (
     <div className="container">
       <div className="trans-title">
-        <p>Send Money</p>
-        <Link to="/">Add New</Link>
+        <p>Merchants</p>
+        <Link to="/">Add New Merchant</Link>
       </div>
       <div className="card-body">
         {merchant.map((item) => (

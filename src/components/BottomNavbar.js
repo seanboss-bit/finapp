@@ -1,145 +1,61 @@
 import React, { useEffect, useState } from "react";
-import AppsIcon from "@material-ui/icons/Apps";
-import CreditCardIcon from "@material-ui/icons/CreditCard";
 import SettingsIcon from "@material-ui/icons/Settings";
-import { useHistory } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import PersonIcon from '@mui/icons-material/Person';
 
 const BottomNavbar = () => {
   // eslint-disable-next-line
   const [overView, setOverView] = useState(true);
-  const [pages, setPages] = useState(false);
-  const [component, setComponent] = useState(false);
-  // eslint-disable-next-line
-  const [card, setCard] = useState(false);
   // eslint-disable-next-line
   const [set, setSet] = useState(false);
-  const history = useHistory();
+  const [trans, setTrans] = useState(false);
+  const history = useLocation();
 
   useEffect(() => {
-    if (history.location.pathname === "/settings") {
-      setOverView(false);
-      setPages(false);
-      setComponent(false);
-      setCard(false);
-      setSet(true);
-    } else if (history.location.pathname === "/") {
-      setOverView(true);
-      setPages(false);
-      setComponent(false);
-      setCard(false);
-      setSet(false);
-    } else if (history.location.pathname === "/pages") {
-      setOverView(false);
-      setPages(true);
-      setComponent(false);
-      setCard(false);
-      setSet(false);
-    } else if (history.location.pathname === "/components") {
-      setOverView(false);
-      setPages(false);
-      setComponent(true);
-      setCard(false);
-      setSet(false);
-    } else if (history.location.pathname === "/cards/all") {
-      setOverView(false);
-      setPages(false);
-      setComponent(false);
-      setCard(true);
-      setSet(false);
-    } else {
-      setOverView(false);
-      setPages(false);
-      setComponent(false);
-      setCard(false);
-      setSet(false);
-    }
+    const checkLinks = () => {
+      if (history.pathname === "/settings") {
+        setOverView(false);
+        setSet(true);
+        setTrans(false);
+      } else if (history.pathname === "/dashboard") {
+        setOverView(true);
+        setSet(false);
+        setTrans(false);
+      } else if (history.pathname === "/transactions/all") {
+        setOverView(false);
+        setSet(false);
+        setTrans(true);
+      } else {
+        setOverView(false);
+        setSet(false);
+        setTrans(false);
+      }
+    };
+    checkLinks();
     // eslint-disable-next-line
-  }, [history.location.pathname]);
-  const toHome = () => {
-    history.push("/");
-    setOverView(true);
-    setPages(false);
-    setComponent(false);
-    setCard(false);
-    setSet(false);
-  };
-  const toPages = () => {
-    history.push("/pages");
-    setOverView(false);
-    setPages(true);
-    setComponent(false);
-    setCard(false);
-    setSet(false);
-  };
-  const toComponent = () => {
-    history.push("/components");
-    setOverView(false);
-    setPages(false);
-    setComponent(true);
-    setCard(false);
-    setSet(false);
-  };
-  const toCards = () => {
-    history.push("/cards/all");
-    setOverView(false);
-    setPages(false);
-    setComponent(false);
-    setCard(true);
-    setSet(false);
-  };
-  const toSettings = () => {
-    history.push("/settings");
-    setOverView(false);
-    setPages(false);
-    setComponent(false);
-    setCard(false);
-    setSet(true);
-  };
+  }, [history]);
 
   return (
     <div className="bottom navbar">
       <div className="container">
-        <div
-          className={
-            history.location.pathname === "/dashboard" ? "pain active" : "pain"
-          }
-          onClick={() => toHome()}
-        >
+        <Link to={`/dashboard`} className={overView ? "pain active" : "pain"}>
           <i className="fas fa-chart-pie"></i>
           <p>overview</p>
-        </div>
-        <div
-          className={pages ? "pain active" : "pain"}
-          onClick={() => toPages()}
-        >
-          <i className="far fa-file"></i>
-          <p>pages</p>
-        </div>
-        <div
-          className={component ? "pain active" : "pain"}
-          onClick={() => toComponent()}
-        >
-          <AppsIcon />
-          <p>components</p>
-        </div>
-        <div
-          className={
-            history.location.pathname === "/cards/all" ? "pain active" : "pain"
-          }
-          onClick={() => toCards()}
-        >
-          <CreditCardIcon />
-          <p>my cards</p>
-        </div>
-        <div
-          className={
-            history.location.pathname === "/settings" ? "pain active" : "pain"
-          }
-          onClick={() => toSettings()}
-        >
+        </Link>
+        <Link to="/transactions/all" className={trans ? "pain active" : "pain"}>
+          <TrendingUpIcon />
+          <p>transaction</p>
+        </Link>
+        <Link to={"/merchnts"} className={set ? "pain active" : "pain"}>
+          <PersonIcon />
+          <p>merchants</p>
+        </Link>
+        <Link to={"/settings"} className={set ? "pain active" : "pain"}>
           <SettingsIcon />
           <p>settings</p>
-        </div>
+        </Link>
+        
       </div>
     </div>
   );

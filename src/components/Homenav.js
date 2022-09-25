@@ -1,26 +1,28 @@
 import React, { useState } from "react";
 import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
 import CloseIcon from "@material-ui/icons/Close";
-import AddIcon from "@material-ui/icons/Add";
-import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
-import AppsIcon from "@material-ui/icons/Apps";
-import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
-import CreditCardIcon from "@material-ui/icons/CreditCard";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import { Link } from "react-router-dom";
+import PersonIcon from "@mui/icons-material/Person";
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import { Link, useNavigate } from "react-router-dom";
 
-const Homenav = () => {
+const Homenav = ({ setAdmin }) => {
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+  const logOut = () => {
+    setAdmin(false);
+    navigate("/");
+  };
   return (
     <div className="home-nav">
       <div className="navbar">
         <div className="container">
           <i className="fas fa-bars" onClick={() => setShow(true)}></i>
           <div className="text-logo">
-            <p>SafePay</p>
+            <p>SafePAY</p>
           </div>
           <div className="main-user">
             <Link to="/notification" className="notify">
@@ -40,7 +42,7 @@ const Homenav = () => {
       {show ? (
         <div
           className="modale-back"
-          onDoubleClick={() => {
+          onClick={() => {
             setShow(false);
           }}
         >
@@ -56,42 +58,7 @@ const Homenav = () => {
                 <p>John Doe</p>
                 <p>40583945</p>
               </div>
-              <CloseIcon />
-            </div>
-            <div className="modal-balance">
-              <div className="container">
-                <p>Balance</p>
-                <p className="value">
-                  {" "}
-                  <span className="naira">N</span> 2,475.50
-                </p>
-              </div>
-              <div className="transfers">
-                <div className="tranfer-content">
-                  <div className="trans-inn">
-                    <AddIcon />
-                  </div>
-                  <p className="transfer-p">deposit</p>
-                </div>
-                <div className="transfer-content">
-                  <div className="trans-inn">
-                    <ArrowDownwardIcon />
-                  </div>
-                  <p className="transfer-p">withdraw</p>
-                </div>
-                <div className="tranfer-content">
-                  <div className="trans-inn">
-                    <ArrowForwardIcon />
-                  </div>
-                  <p className="transfer-p">send</p>
-                </div>
-                <div className="transfer-content">
-                  <div className="trans-inn">
-                    <CreditCardIcon />
-                  </div>
-                  <p className="transfer-p">card</p>
-                </div>
-              </div>
+              <CloseIcon onClick={() => setShow(false)} />
             </div>
             <div className="modal-menu">
               <div className="container">
@@ -99,7 +66,7 @@ const Homenav = () => {
                 <ul className="menu-list">
                   <li>
                     {/* eslint-disable-next-line */}
-                    <a href="#">
+                    <Link to={"/dashboard"}>
                       <div className="op">
                         <div className="ops">
                           <i className="fas fa-chart-pie"></i>
@@ -107,52 +74,31 @@ const Homenav = () => {
                         <p>overview</p>
                       </div>
                       <div className="rs">
-                        <span>10</span>
                         <ArrowForwardIosIcon />
                       </div>
-                    </a>
-                  </li>
-                  <li>
-                    {/* eslint-disable-next-line */}
-                    <a href="#">
+                    </Link>
+                    <Link to={"/transactions/all"}>
                       <div className="op">
                         <div className="ops">
-                          <i className="far fa-file"></i>
+                          <TrendingUpIcon />
                         </div>
-                        <p>pages</p>
+                        <p>transactions</p>
                       </div>
                       <div className="rs">
                         <ArrowForwardIosIcon />
                       </div>
-                    </a>
-                  </li>
-                  <li>
-                    {/* eslint-disable-next-line */}
-                    <a href="#">
+                    </Link>
+                    <Link to="/merchants">
                       <div className="op">
                         <div className="ops">
-                          <AppsIcon />
+                          <PersonIcon />
                         </div>
-                        <p>component</p>
+                        <p>merchants</p>
                       </div>
                       <div className="rs">
                         <ArrowForwardIosIcon />
                       </div>
-                    </a>
-                  </li>
-                  <li>
-                    {/* eslint-disable-next-line */}
-                    <a href="#">
-                      <div className="op">
-                        <div className="ops">
-                          <CreditCardIcon />
-                        </div>
-                        <p>my cards</p>
-                      </div>
-                      <div className="rs">
-                        <ArrowForwardIosIcon />
-                      </div>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -163,7 +109,7 @@ const Homenav = () => {
                 <ul className="menu-list">
                   <li>
                     {/* eslint-disable-next-line */}
-                    <a href="#">
+                    <Link to={"/settings"}>
                       <div className="op">
                         <div className="ops">
                           <SettingsIcon />
@@ -173,11 +119,11 @@ const Homenav = () => {
                       <div className="rs">
                         <ArrowForwardIosIcon />
                       </div>
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     {/* eslint-disable-next-line */}
-                    <a href="#">
+                    <Link to={"/dashboard"}>
                       <div className="op">
                         <div className="ops">
                           <ChatBubbleIcon />
@@ -187,11 +133,11 @@ const Homenav = () => {
                       <div className="rs">
                         <ArrowForwardIosIcon />
                       </div>
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     {/* eslint-disable-next-line */}
-                    <a href="#">
+                    <Link to={"/"} onClick={() => logOut()}>
                       <div className="op">
                         <div className="ops">
                           <ExitToAppIcon />
@@ -201,50 +147,7 @@ const Homenav = () => {
                       <div className="rs">
                         <ArrowForwardIosIcon />
                       </div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="modal-send-money">
-              <div className="container">
-                <p className="menu-title">send money</p>
-                <ul className="menu-list">
-                  <li>
-                    {/* eslint-disable-next-line */}
-                    <a href="#">
-                      <div className="op">
-                        <img src="/images/avatar1.jpg" alt="#" />
-                        <p>artem sazonov</p>
-                      </div>
-                      <div className="rs">
-                        <ArrowForwardIosIcon />
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    {/* eslint-disable-next-line */}
-                    <a href="#">
-                      <div className="op">
-                        <img src="/images/avatar1.jpg" alt="#" />
-                        <p>sophie asved</p>
-                      </div>
-                      <div className="rs">
-                        <ArrowForwardIosIcon />
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    {/* eslint-disable-next-line */}
-                    <a href="#">
-                      <div className="op">
-                        <img src="/images/avatar1.jpg" alt="#" />
-                        <p>Kobus van de Vegte</p>
-                      </div>
-                      <div className="rs">
-                        <ArrowForwardIosIcon />
-                      </div>
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>

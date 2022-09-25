@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { publicRequest } from "../request";
 import Table from "@mui/material/Table";
 import Moment from "react-moment";
@@ -13,8 +13,9 @@ import Paper from "@mui/material/Paper";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const MerchantSingle = () => {
-  const history = useHistory();
-  const id = history?.location?.pathname?.split("/")[2];
+  const history = useLocation();
+  const navigate = useNavigate();
+  const id = history?.pathname?.split("/")[2];
   const [merchant, setMerchant] = useState([]);
   const [rows, setInflowData] = useState([]);
   const [outflowData, setOutflowData] = useState([]);
@@ -49,7 +50,7 @@ const MerchantSingle = () => {
     <div>
       <div className="container">
         <div className="backtoHo">
-          <ArrowBackIcon onClick={() => history.push("/dashboard")} />
+          <ArrowBackIcon onClick={() => navigate("/dashboard")} />
         </div>
         <div className="four-box">
           <div className="four-box-content">
