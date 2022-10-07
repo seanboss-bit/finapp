@@ -9,11 +9,12 @@ import PersonIcon from "@mui/icons-material/Person";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import { Link, useNavigate } from "react-router-dom";
 
-const Homenav = ({ setAdmin }) => {
+const Homenav = ({ setAdmin, setMerchant }) => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const logOut = () => {
     setAdmin(false);
+    setMerchant(false)
     navigate("/");
   };
   return (

@@ -2035,6 +2035,10 @@ display: grid;
   align-items: center;
   width: 100% !important;
 }
+/*  */
+.mercant-current{
+  padding-top: 100px;
+}
 /*======================
 MEDIA QUERIES
 =======================*/

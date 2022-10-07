@@ -9,7 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Moment from "react-moment";
 
-const Hometransactions = ({ transactions }) => {
+const Hometransactions = ({ transactions, merchant }) => {
   function numberWithCommas(x) {
     return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -22,33 +22,69 @@ const Hometransactions = ({ transactions }) => {
       <div className="trans-list">
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Ref. Number</TableCell>
-                <TableCell align="left">Description</TableCell>
-                <TableCell align="left">Amount</TableCell>
-                <TableCell align="left">Date</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {transactions?.slice(0, 4).map((row) => (
-                <TableRow
-                  key={row.paymentref}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {row.paymentref}
-                  </TableCell>
-                  <TableCell align="left">{row.description}</TableCell>
-                  <TableCell align="left" width={150}>
-                    NGN {numberWithCommas(row.transaction_amount)}
-                  </TableCell>
-                  <TableCell align="left" width={150}>
-                    {<Moment date={row.date} format="dddd-MM-YYYY" />}
-                  </TableCell>
+            {merchant ? (
+              <TableHead>
+                <TableRow>
+                  <TableCell>Amount</TableCell>
+                  <TableCell align="left">Description</TableCell>
+                  <TableCell align="left">Alert</TableCell>
+                  <TableCell align="left">Date</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
+              </TableHead>
+            ) : (
+              <TableHead>
+                <TableRow>
+                  <TableCell>Ref. Number</TableCell>
+                  <TableCell align="left">Description</TableCell>
+                  <TableCell align="left">Amount</TableCell>
+                  <TableCell align="left">Date</TableCell>
+                </TableRow>
+              </TableHead>
+            )}
+            {merchant ? (
+              <TableBody>
+                {transactions?.slice(0, 10)?.map((row) => (
+                  <TableRow
+                    key={row.paymentref}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      NGN {numberWithCommas(row.total_amount || row.Amount)}
+                    </TableCell>
+                    <TableCell align="left">
+                      {row.display_message ||
+                        `Transfer of ${row.Amount} to ${row.BeneficiaryName} A/C:${row.BeneficiaryAccount} TRNFREF:${row.TransactionRef}`}
+                    </TableCell>
+                    <TableCell align="left" width={150}>
+                      {row.response ? "Outflow" : "Inflow"}
+                    </TableCell>
+                    <TableCell align="left" width={150}>
+                      {<Moment date={row.date} format="dddd-MM-YYYY" />}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            ) : (
+              <TableBody>
+                {transactions?.slice(0, 4).map((row) => (
+                  <TableRow
+                    key={row.paymentref}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {row.paymentref}
+                    </TableCell>
+                    <TableCell align="left">{row.description}</TableCell>
+                    <TableCell align="left" width={150}>
+                      NGN {numberWithCommas(row.transaction_amount)}
+                    </TableCell>
+                    <TableCell align="left" width={150}>
+                      {<Moment date={row.date} format="dddd-MM-YYYY" />}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            )}
           </Table>
         </TableContainer>
       </div>

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-const Login = ({ setAdmin }) => {
+import bcryptjs from "bcryptjs";
+import { publicRequest } from "../request";
+const Login = ({ setAdmin, setMerchant, setLoggedInMerchant }) => {
   const history = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const logUserIn = (e) => {
+  const logUserIn = async (e) => {
     e.preventDefault();
     if (email === "" || password === "") {
       Swal.fire({
@@ -20,15 +22,29 @@ const Login = ({ setAdmin }) => {
         timer: 2000,
       });
       setAdmin(true);
+      setMerchant(false);
       setTimeout(() => {
         history("/dashboard");
       }, 3000);
     } else {
-      Swal.fire({
-        title: "Wrong Login Details",
-        text: "Please Make Sure Your Details Are Correct",
-        icon: "error",
-      });
+      try {
+        const user = await publicRequest.get(
+          `/coralpay/web/validateuserpassword/${email}`
+        );
+        const correctPassword = bcryptjs.compareSync(password, user.data.data);
+        if (correctPassword) {
+          setLoggedInMerchant(email)
+          history(`/merchant/${email}`);
+          setMerchant(true);
+        }
+        Swal.fire({
+          icon: "success",
+          title: "Login Success",
+          timer: 3000,
+        });
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
   return (

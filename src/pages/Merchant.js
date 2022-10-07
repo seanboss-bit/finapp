@@ -8,7 +8,6 @@ import { publicRequest } from "../request";
 
 const Merchant = () => {
   const [merchant, setMerchant] = useState([]);
-
   useEffect(() => {
     const getMerchant = async () => {
       try {
@@ -43,7 +42,7 @@ const Merchant = () => {
           <div className="card-body">
             {merchant.map((item) => (
               <Link
-                to={`/merchant/${item.merchant_id}`}
+                to={`/merchants/${item.merchant_id}`}
                 className="money-content"
                 key={item.merchant_id}
               >

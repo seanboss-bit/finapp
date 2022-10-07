@@ -10,13 +10,29 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Moment from "react-moment";
 import { Link } from "react-router-dom";
-const TransactionAll = ({ transactions }) => {
+import { publicRequest } from "../request";
+const TransactionAll = ({ transactions, merchant, loggedInMerchant }) => {
   const [loading, setLoading] = useState(false);
+  const [transactionss, setTransactions] = useState([]);
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
     }, 1500);
+    const getTransForSingMerchant = async () => {
+      try {
+        const res = await publicRequest.get(
+          `https://safe-payy.herokuapp.com/coralpay/pos/queryalltransaction/phone/${loggedInMerchant}`
+        );
+        const inflow = res.data.inflow.concat(res.data.outflow);
+
+        console.log(res);
+        setTransactions(inflow);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getTransForSingMerchant();
     // eslint-disable-next-line
   }, []);
   function numberWithCommas(x) {
@@ -48,32 +64,71 @@ const TransactionAll = ({ transactions }) => {
             <TableContainer component={Paper}>
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
-                  <TableRow>
-                    <TableCell>Ref. Number</TableCell>
-                    <TableCell align="left">Description</TableCell>
-                    <TableCell align="left">Amount</TableCell>
-                    <TableCell align="left">Date</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {transactions?.map((row) => (
-                    <TableRow
-                      key={row.name}
-                      sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                    >
-                      <TableCell component="th" scope="row">
-                        {row.paymentref}
-                      </TableCell>
-                      <TableCell align="left">{row.description}</TableCell>
-                      <TableCell align="left" width={150}>
-                        NGN {numberWithCommas(row.transaction_amount)}
-                      </TableCell>
-                      <TableCell align="left" width={170}>
-                        {<Moment date={row.date} format="dddd-MM-YYYY" />}
-                      </TableCell>
+                  {merchant ? (
+                    <TableRow>
+                      <TableCell>Amount</TableCell>
+                      <TableCell align="left">Description</TableCell>
+                      <TableCell align="left">Alert</TableCell>
+                      <TableCell align="left">Date</TableCell>
                     </TableRow>
-                  ))}
-                </TableBody>
+                  ) : (
+                    <TableRow>
+                      <TableCell>Ref. Number</TableCell>
+                      <TableCell align="left">Description</TableCell>
+                      <TableCell align="left">Amount</TableCell>
+                      <TableCell align="left">Date</TableCell>
+                    </TableRow>
+                  )}
+                </TableHead>
+                {merchant ? (
+                  <TableBody>
+                    {transactionss?.map((row) => (
+                      <TableRow
+                        key={row.name}
+                        sx={{
+                          "&:last-child td, &:last-child th": { border: 0 },
+                        }}
+                      >
+                        <TableCell component="th" scope="row">
+                          NGN {numberWithCommas(row.total_amount || row.Amount)}
+                        </TableCell>
+                        <TableCell align="left">
+                          {" "}
+                          {row.display_message ||
+                            `Transfer of ${row.Amount} to ${row.BeneficiaryName} A/C:${row.BeneficiaryAccount} TRNFREF:${row.TransactionRef}`}
+                        </TableCell>
+                        <TableCell align="left" width={150}>
+                          {row.response ? "Outflow" : "Inflow"}
+                        </TableCell>
+                        <TableCell align="left" width={170}>
+                          {<Moment date={row.date} format="dddd-MM-YYYY" />}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                ) : (
+                  <TableBody>
+                    {transactions?.map((row) => (
+                      <TableRow
+                        key={row.name}
+                        sx={{
+                          "&:last-child td, &:last-child th": { border: 0 },
+                        }}
+                      >
+                        <TableCell component="th" scope="row">
+                          {row.paymentref}
+                        </TableCell>
+                        <TableCell align="left">{row.description}</TableCell>
+                        <TableCell align="left" width={150}>
+                          NGN {numberWithCommas(row.transaction_amount)}
+                        </TableCell>
+                        <TableCell align="left" width={170}>
+                          {<Moment date={row.date} format="dddd-MM-YYYY" />}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                )}
               </Table>
             </TableContainer>
           </div>
