@@ -9,7 +9,11 @@ const CurrentMerchant = () => {
       <div className="container">
         <div className="current-merchant-box-slide">
           <div className="current-merchant-box">
-            <div className="current-merchant-icon"></div>
+            <div className="current-merchant-icon">
+              <TrendingUpIcon />
+              <TrendingDownIcon />
+              <AccountBalanceWalletIcon />
+            </div>
             <h4>total credit</h4>
             <p>NGN 400</p>
           </div>
