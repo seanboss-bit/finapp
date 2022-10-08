@@ -5,7 +5,7 @@ import Homenav from "../components/Homenav";
 import Hometransactions from "../components/Hometransactions";
 import { publicRequest } from "../request";
 
-const MerchantHome = ({ setMerchant, setAdmin, merchant }) => {
+const MerchantHome = ({ setMerchant, setAdmin, merchant, loggedInMerchant }) => {
   const history = useLocation();
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -18,7 +18,6 @@ const MerchantHome = ({ setMerchant, setAdmin, merchant }) => {
         );
         const inflow = res.data.inflow.concat(res.data.outflow);
 
-        console.log(res);
         setTransactions(inflow);
       } catch (error) {
         console.log(error);
@@ -39,7 +38,7 @@ const MerchantHome = ({ setMerchant, setAdmin, merchant }) => {
         </div>
       ) : (
         <div>
-          <Homenav setMerchant={setMerchant} setAdmin={setAdmin} />
+          <Homenav setMerchant={setMerchant} setAdmin={setAdmin} merchant={merchant} loggedInMerchant={loggedInMerchant}/>
           <CurrentMerchant />
           <Hometransactions transactions={transactions} merchant={merchant} />
           <footer className="footer">

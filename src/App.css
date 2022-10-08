@@ -1200,6 +1200,7 @@ DESIGN FOR PAGES, COMPONENT, AND OTHRES
 }
 .page-list {
   padding-top: 70px;
+  padding-bottom: 100px;
 }
 .App.light .linear .MuiSvgIcon-root {
   font-size: 13px !important;
@@ -2039,10 +2040,33 @@ display: grid;
 .mercant-current{
   padding-top: 100px;
 }
+.current-merchant-box-slide{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 20px;
+}
+.current-merchant-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: capitalize;
+  gap: 15px;
+  background: var(--white-color);
+  padding: 15px 0px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  width: 100%;
+}
 /*======================
 MEDIA QUERIES
 =======================*/
 @media screen and (max-width: 700px) {
+  .current-merchant-box-slide{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .blog .homeincexp {
     grid-template-columns: 1fr;
   }

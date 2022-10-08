@@ -9,12 +9,12 @@ import PersonIcon from "@mui/icons-material/Person";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import { Link, useNavigate } from "react-router-dom";
 
-const Homenav = ({ setAdmin, setMerchant }) => {
+const Homenav = ({ setAdmin, setMerchant, merchant, loggedInMerchant }) => {
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const logOut = () => {
     setAdmin(false);
-    setMerchant(false)
+    setMerchant(false);
     navigate("/");
   };
   return (
@@ -57,7 +57,7 @@ const Homenav = ({ setAdmin, setMerchant }) => {
               </div>
               <div className="modal-info-text">
                 <p>John Doe</p>
-                <p>40583945</p>
+                <p>Merchant ID: {loggedInMerchant}</p>
               </div>
               <CloseIcon onClick={() => setShow(false)} />
             </div>
@@ -67,7 +67,7 @@ const Homenav = ({ setAdmin, setMerchant }) => {
                 <ul className="menu-list">
                   <li>
                     {/* eslint-disable-next-line */}
-                    <Link to={"/dashboard"}>
+                    <Link to={merchant ? `/merchant/${loggedInMerchant}` : `/dashboard`}>
                       <div className="op">
                         <div className="ops">
                           <i className="fas fa-chart-pie"></i>
@@ -89,17 +89,19 @@ const Homenav = ({ setAdmin, setMerchant }) => {
                         <ArrowForwardIosIcon />
                       </div>
                     </Link>
-                    <Link to="/merchants">
-                      <div className="op">
-                        <div className="ops">
-                          <PersonIcon />
+                    {merchant ? null : (
+                      <Link to="/merchants">
+                        <div className="op">
+                          <div className="ops">
+                            <PersonIcon />
+                          </div>
+                          <p>merchants</p>
                         </div>
-                        <p>merchants</p>
-                      </div>
-                      <div className="rs">
-                        <ArrowForwardIosIcon />
-                      </div>
-                    </Link>
+                        <div className="rs">
+                          <ArrowForwardIosIcon />
+                        </div>
+                      </Link>
+                    )}
                   </li>
                 </ul>
               </div>

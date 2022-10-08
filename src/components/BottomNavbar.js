@@ -26,6 +26,10 @@ const BottomNavbar = ({ merchant, loggedInMerchant }) => {
         setOverView(false);
         setSet(false);
         setTrans(true);
+      } else if (history.pathname === `/merchant/${loggedInMerchant}`) {
+        setOverView(true);
+        setSet(false);
+        setTrans(false);
       } else {
         setOverView(false);
         setSet(false);

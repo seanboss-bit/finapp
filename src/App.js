@@ -91,6 +91,7 @@ function App() {
                     setAdmin={setAdmin}
                     setMerchant={setMerchant}
                     merchant={mechant}
+                    loggedInMerchant={loggedInMerchant}
                   />
                 }
               />
@@ -132,6 +133,7 @@ function App() {
                     setMerchant={setMerchant}
                     setAdmin={setAdmin}
                     merchant={mechant}
+                    loggedInMerchant={loggedInMerchant}
                   />
                 }
               />

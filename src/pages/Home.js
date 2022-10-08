@@ -3,7 +3,7 @@ import Homenav from "../components/Homenav";
 import Hometransactions from "../components/Hometransactions";
 import SendMoney from "../components/SendMoney";
 
-const Home = ({ transactions, setAdmin, setMerchant, merchant }) => {
+const Home = ({ transactions, setAdmin, setMerchant, merchant, loggedInMerchant }) => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
@@ -20,7 +20,7 @@ const Home = ({ transactions, setAdmin, setMerchant, merchant }) => {
         </div>
       ) : (
         <div>
-          <Homenav setAdmin={setAdmin} setMerchant={setMerchant} />
+          <Homenav setAdmin={setAdmin} setMerchant={setMerchant} merchant={merchant} loggedInMerchant={loggedInMerchant}/>
           <Hometransactions transactions={transactions} merchant={merchant} />
           <SendMoney />
           <footer className="footer">
