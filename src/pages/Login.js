@@ -26,25 +26,40 @@ const Login = ({ setAdmin, setMerchant, setLoggedInMerchant }) => {
       setTimeout(() => {
         history("/dashboard");
       }, 3000);
-    } else {
+      // eslint-disable-next-line
+    } else if (email.length == 3) {
       try {
         const user = await publicRequest.get(
           `/coralpay/web/validateuserpassword/${email}`
         );
         const correctPassword = bcryptjs.compareSync(password, user.data.data);
         if (correctPassword) {
-          setLoggedInMerchant(email)
+          setLoggedInMerchant(email);
           history(`/merchant/${email}`);
           setMerchant(true);
+          Swal.fire({
+            icon: "success",
+            title: "Login Success",
+            timer: 3000,
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Wrong Login Details",
+            text: "Wrong Credentials",
+            timer: 3000,
+          });
         }
-        Swal.fire({
-          icon: "success",
-          title: "Login Success",
-          timer: 3000,
-        });
       } catch (error) {
         console.log(error);
       }
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Wrong Login Details",
+        text: "Wrong Credentials",
+        timer: 3000,
+      });
     }
   };
   return (

@@ -57,7 +57,11 @@ const Homenav = ({ setAdmin, setMerchant, merchant, loggedInMerchant }) => {
               </div>
               <div className="modal-info-text">
                 <p>John Doe</p>
-                <p>Merchant ID: {loggedInMerchant}</p>
+                {merchant ? (
+                  <p>Merchant ID: {loggedInMerchant}</p>
+                ) : (
+                  <p>Admin ID: 274672021</p>
+                )}
               </div>
               <CloseIcon onClick={() => setShow(false)} />
             </div>
@@ -67,7 +71,13 @@ const Homenav = ({ setAdmin, setMerchant, merchant, loggedInMerchant }) => {
                 <ul className="menu-list">
                   <li>
                     {/* eslint-disable-next-line */}
-                    <Link to={merchant ? `/merchant/${loggedInMerchant}` : `/dashboard`}>
+                    <Link
+                      to={
+                        merchant
+                          ? `/merchant/${loggedInMerchant}`
+                          : `/dashboard`
+                      }
+                    >
                       <div className="op">
                         <div className="ops">
                           <i className="fas fa-chart-pie"></i>
@@ -112,17 +122,19 @@ const Homenav = ({ setAdmin, setMerchant, merchant, loggedInMerchant }) => {
                 <ul className="menu-list">
                   <li>
                     {/* eslint-disable-next-line */}
-                    <Link to={"/settings"}>
-                      <div className="op">
-                        <div className="ops">
-                          <SettingsIcon />
+                    {merchant ? (
+                      <Link to={"/settings"}>
+                        <div className="op">
+                          <div className="ops">
+                            <SettingsIcon />
+                          </div>
+                          <p>settings</p>
                         </div>
-                        <p>settings</p>
-                      </div>
-                      <div className="rs">
-                        <ArrowForwardIosIcon />
-                      </div>
-                    </Link>
+                        <div className="rs">
+                          <ArrowForwardIosIcon />
+                        </div>
+                      </Link>
+                    ) : null}
                   </li>
                   <li>
                     {/* eslint-disable-next-line */}
