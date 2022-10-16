@@ -880,20 +880,20 @@ Latest News
 /*============ 
 Footer 
 ============*/
-.App.light footer {
+.App.light .footer {
   background: var(--white-color);
   padding: 20px;
   text-align: center;
   font-weight: 500;
-  margin-top: 40px;
+  margin-top: 100px;
   margin-bottom: 68px;
 }
-.App.dark footer {
+.App.dark .footer {
   background: var(--darkmode-bg);
   padding: 20px;
   text-align: center;
   font-weight: 500;
-  margin-top: 40px;
+  margin-top: 100px;
   margin-bottom: 68px;
 }
 .App.light footer p {
@@ -2045,7 +2045,7 @@ display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
   gap: 20px;
 }
-.current-merchant-box{
+.App.light .current-merchant-box{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2057,6 +2057,44 @@ display: grid;
   box-shadow: var(--shadow);
   width: 100%;
   text-align: center;
+}
+.App.dark .current-merchant-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: capitalize;
+  gap: 15px;
+  background: var(--darkmode-bg);
+  padding: 15px 0px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  color:var(--white-color);
+  width: 100%;
+  text-align: center;
+}
+.App.dark .table-material{
+  background: var(--darkmode-bg);
+}
+.App.dark .table-material th,.App.dark .table-material td{
+  color: var(--white-color);
+}
+.App.dark .top-name{
+  color: var(--white-color);
+}
+.App.dark .main-form{
+  background-color: var(--darkmode-bg);
+  color: var(--white-color);
+}
+.App.dark .main-form input{
+  color: var(--white-color);
+}
+.App.dark .four-box-content span{
+  color: var(--white-color);
+  text-transform: capitalize;
+}
+.aling-tst{
+  text-align: center !important;
+  font-size: 10px !important;
 }
 .current-merchant-box h4{
   font-size: 16px !important;

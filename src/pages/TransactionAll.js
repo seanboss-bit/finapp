@@ -61,7 +61,7 @@ const TransactionAll = ({ transactions, merchant, loggedInMerchant }) => {
             </div>
           </div>
           <div className="trans-list page-list container">
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} className="table-material">
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                   {merchant ? (
@@ -89,10 +89,10 @@ const TransactionAll = ({ transactions, merchant, loggedInMerchant }) => {
                           "&:last-child td, &:last-child th": { border: 0 },
                         }}
                       >
-                        <TableCell component="th" scope="row">
+                        <TableCell component="th" scope="row" width={110}>
                           NGN {numberWithCommas(row.total_amount || row.Amount)}
                         </TableCell>
-                        <TableCell align="left">
+                        <TableCell align="left" className="aling-tst">
                           {" "}
                           {row.display_message ||
                             `Transfer of ${row.Amount} to ${row.BeneficiaryName} A/C:${row.BeneficiaryAccount} TRNFREF:${row.TransactionRef}`}
@@ -118,11 +118,17 @@ const TransactionAll = ({ transactions, merchant, loggedInMerchant }) => {
                         <TableCell component="th" scope="row">
                           {row.paymentref}
                         </TableCell>
-                        <TableCell align="left">{row.description}</TableCell>
-                        <TableCell align="left" width={150}>
+                        <TableCell
+                          align="left"
+                          width={250}
+                          className="aling-tst"
+                        >
+                          {row.description}
+                        </TableCell>
+                        <TableCell align="left" width={350}>
                           NGN {numberWithCommas(row.transaction_amount)}
                         </TableCell>
-                        <TableCell align="left" width={170}>
+                        <TableCell align="left" width={270}>
                           {<Moment date={row.date} format="dddd-MM-YYYY" />}
                         </TableCell>
                       </TableRow>

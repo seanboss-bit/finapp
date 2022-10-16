@@ -94,7 +94,7 @@ const MerchantSingle = () => {
             </button>
           </div>
           {!change && (
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} className="table-material">
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
@@ -112,20 +112,20 @@ const MerchantSingle = () => {
                       key={row?.name}
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
-                      <TableCell component="th" scope="row">
+                      <TableCell component="th" scope="row" width={150}>
                         {row?.paymentref}
                       </TableCell>
-                      <TableCell align="left">{row.display_message}</TableCell>
-                      <TableCell align="left" width={150}>
+                      <TableCell align="left" width={800} className="aling-tst">{row.display_message}</TableCell>
+                      <TableCell align="left" width={800}>
                         NGN {numberWithCommas(row?.paid_amount)}
                       </TableCell>
-                      <TableCell align="left" width={150}>
+                      <TableCell align="left" width={650}>
                         {row?.service_fee}
                       </TableCell>
-                      <TableCell align="left">
+                      <TableCell align="left" width={1500}>
                         NGN {numberWithCommas(row?.total_amount)}
                       </TableCell>
-                      <TableCell align="left">
+                      <TableCell align="left" width={200}>
                         {
                           <Moment
                             date={row?.transaction_date}
@@ -140,7 +140,7 @@ const MerchantSingle = () => {
             </TableContainer>
           )}
           {change && (
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} className="table-material">
               <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                   <TableRow>
@@ -156,10 +156,10 @@ const MerchantSingle = () => {
                       key={row?.name}
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
-                      <TableCell component="th" scope="row">
+                      <TableCell component="th" scope="row" >
                         {row.TransactionRef}
                       </TableCell>
-                      <TableCell align="left">
+                      <TableCell align="left" className="aling-tst" width={250}>
                         {row.BeneficiaryName},{row.BeneficiaryAccount},{" "}
                         {row.BeneficiaryBankName}
                       </TableCell>

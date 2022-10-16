@@ -20,7 +20,7 @@ const Hometransactions = ({ transactions, merchant }) => {
         <Link to="/transactions/all">View all</Link>
       </div>
       <div className="trans-list">
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} className='table-material'>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             {merchant ? (
               <TableHead>
@@ -48,10 +48,10 @@ const Hometransactions = ({ transactions, merchant }) => {
                     key={row.paymentref}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
-                    <TableCell component="th" scope="row">
+                    <TableCell component="th" scope="row"  width={110}>
                       NGN {numberWithCommas(row.total_amount || row.Amount)}
                     </TableCell>
-                    <TableCell align="left">
+                    <TableCell align="left" className="aling-tst">
                       {row.display_message ||
                         `Transfer of ${row.Amount} to ${row.BeneficiaryName} A/C:${row.BeneficiaryAccount} TRNFREF:${row.TransactionRef}`}
                     </TableCell>
@@ -74,7 +74,7 @@ const Hometransactions = ({ transactions, merchant }) => {
                     <TableCell component="th" scope="row">
                       {row.paymentref}
                     </TableCell>
-                    <TableCell align="left">{row.description}</TableCell>
+                    <TableCell align="left"  className="aling-tst">{row.description}</TableCell>
                     <TableCell align="left" width={150}>
                       NGN {numberWithCommas(row.transaction_amount)}
                     </TableCell>
