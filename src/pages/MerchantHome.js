@@ -5,7 +5,13 @@ import Homenav from "../components/Homenav";
 import Hometransactions from "../components/Hometransactions";
 import { publicRequest } from "../request";
 
-const MerchantHome = ({ setMerchant, setAdmin, merchant, loggedInMerchant }) => {
+const MerchantHome = ({
+  setMerchant,
+  setAdmin,
+  merchant,
+  loggedInMerchant,
+  setMerchantDetailsAll,
+}) => {
   const history = useLocation();
   const [transactions, setTransactions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -38,7 +44,13 @@ const MerchantHome = ({ setMerchant, setAdmin, merchant, loggedInMerchant }) => 
         </div>
       ) : (
         <div>
-          <Homenav setMerchant={setMerchant} setAdmin={setAdmin} merchant={merchant} loggedInMerchant={loggedInMerchant}/>
+          <Homenav
+            setMerchant={setMerchant}
+            setAdmin={setAdmin}
+            merchant={merchant}
+            loggedInMerchant={loggedInMerchant}
+            setMerchantDetailsAll={setMerchantDetailsAll}
+          />
           <CurrentMerchant />
           <Hometransactions transactions={transactions} merchant={merchant} />
           <footer className="footer">

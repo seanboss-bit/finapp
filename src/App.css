@@ -1010,12 +1010,12 @@ Sidebar
   overflow: hidden;
 }
 .App.light .modal-info-text p:first-child {
-  font-size: 19px !important;
+  font-size: 14px !important;
   color: var(--text-color);
   font-weight: 600;
 }
 .App.dark .modal-info-text p:first-child {
-  font-size: 19px !important;
+  font-size: 14px !important;
   color: var(--white-color);
   font-weight: 600;
 }
@@ -2056,11 +2056,32 @@ display: grid;
   border-radius: 10px;
   box-shadow: var(--shadow);
   width: 100%;
+  text-align: center;
+}
+.current-merchant-box h4{
+  font-size: 16px !important;
+}
+.current-merchant-icon-name{
+  background-color: var(--purple-color);
+  color: var(--white-color);
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.current-merchant-box:last-child p{
+  margin-bottom: 0px !important;
 }
 /*======================
 MEDIA QUERIES
 =======================*/
 @media screen and (max-width: 700px) {
+  .four-box{
+    grid-template-columns: 1fr 1fr !important;
+    text-align: center;
+  }
   .current-merchant-box-slide{
     display: flex;
     flex-direction: column;

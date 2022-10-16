@@ -3,10 +3,18 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import bcryptjs from "bcryptjs";
 import { publicRequest } from "../request";
-const Login = ({ setAdmin, setMerchant, setLoggedInMerchant }) => {
+const Login = ({
+  setAdmin,
+  setMerchant,
+  setLoggedInMerchant,
+  setMerchantDetailsAll,
+  merchantDetailsAll,
+}) => {
   const history = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const merchantDetailKey = "merchantdetailall";
+
   const logUserIn = async (e) => {
     e.preventDefault();
     if (email === "" || password === "") {
@@ -33,6 +41,17 @@ const Login = ({ setAdmin, setMerchant, setLoggedInMerchant }) => {
           `/coralpay/web/validateuserpassword/${email}`
         );
         const correctPassword = bcryptjs.compareSync(password, user.data.data);
+        const lol = await publicRequest.get(
+          `https://safe-payy.herokuapp.com/coralpay/pos/user/validate/001`
+        );
+        console.log(lol);
+        if (lol.data.status) {
+          setMerchantDetailsAll(lol.data.data);
+          window.localStorage.setItem(
+            merchantDetailKey,
+            JSON.stringify(merchantDetailsAll)
+          );
+        }
         if (correctPassword) {
           setLoggedInMerchant(email);
           history(`/merchant/${email}`);

@@ -12,6 +12,10 @@ const CurrentMerchant = () => {
   const [bookBal, setBookBal] = useState("");
   const [avaBal, setAvaBal] = useState("");
   const location = useLocation();
+  const merchantDetailKey = "merchantdetailall";
+  const exit = 
+    JSON.parse(window.localStorage.getItem(merchantDetailKey))
+  
 
   const loggedMerchant = location.pathname.split("/")[2];
   useEffect(() => {
@@ -31,22 +35,36 @@ const CurrentMerchant = () => {
         );
         setBookBal(bal.data.data.book_balance);
         setAvaBal(bal.data.data.available_balance);
-
       } catch (error) {
         console.log(error);
       }
     };
     CurrentMerch();
   }, [loggedMerchant]);
+
+  const getInitials = (name) => {
+    return name
+      .split(" ")
+      .map((word) => {
+        return word[0];
+      })
+      .join("");
+  };
   return (
     <div className="mercant-current">
       <div className="container">
         <div className="current-merchant-box-slide">
           <div className="current-merchant-box">
-            <div className="current-merchant-icon">
-              <TrendingUpIcon />
+            <div className="current-merchant-icon-name">
+              {getInitials(`${exit.account_name}`)}
             </div>
-            <h4>merchant name</h4>
+            <h4>{exit.account_name}</h4>
+          </div>
+          <div className="current-merchant-box">
+            <div className="current-merchant-icon-name">
+              {getInitials(`${exit.business_name}`)}
+            </div>
+            <h4>{exit.business_name}</h4>
           </div>
           <div className="current-merchant-box">
             <div className="current-merchant-icon">
@@ -75,6 +93,12 @@ const CurrentMerchant = () => {
             </div>
             <h4>book balance</h4>
             <p>NGN {bookBal}</p>
+          </div>
+          <div className="current-merchant-box">
+            <p>email: {exit.merchant_email}</p>
+            {exit.POS_phone?.map(item => (
+              <p>phone number: {item}</p>
+            ))}
           </div>
         </div>
       </div>

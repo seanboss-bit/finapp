@@ -28,6 +28,9 @@ function App() {
   const [loggedInMerchant, setLoggedInMerchant] = useState("");
   const loggedInMerchant_key = "loggedinmerchant";
   const [darkMode, setDarkMode] = useState(false);
+  const [merchantDetailsAll, setMerchantDetailsAll] = useState({});
+  const merchantDetailKey = "merchantdetailall";
+
   useEffect(() => {
     const isLogin = window.localStorage.getItem(Admin_Key);
     const facts = window.localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -37,6 +40,7 @@ function App() {
     setAdmin(JSON.parse(isLogin));
     setMerchant(JSON.parse(merchIsLogin));
     setLoggedInMerchant(JSON.parse(identifyMerchant));
+    setMerchantDetailsAll(JSON.parse(window.localStorage.getItem(merchantDetailKey)))
     const getAllTransaction = async () => {
       try {
         const res = await publicRequest.post(
@@ -53,6 +57,10 @@ function App() {
     window.localStorage.setItem(
       loggedInMerchant_key,
       JSON.stringify(loggedInMerchant)
+    );
+    window.localStorage.setItem(
+      merchantDetailKey,
+      JSON.stringify(merchantDetailsAll)
     );
     window.localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(darkMode));
     window.localStorage.setItem(Admin_Key, JSON.stringify(admin));
@@ -75,6 +83,8 @@ function App() {
                   setAdmin={setAdmin}
                   setMerchant={setMerchant}
                   setLoggedInMerchant={setLoggedInMerchant}
+                  setMerchantDetailsAll={setMerchantDetailsAll}
+                  merchantDetailsAll={merchantDetailsAll}
                 />
               )
             }
@@ -92,6 +102,7 @@ function App() {
                     setMerchant={setMerchant}
                     merchant={mechant}
                     loggedInMerchant={loggedInMerchant}
+                    setMerchantDetailsAll={setMerchantDetailsAll}
                   />
                 }
               />
@@ -123,7 +134,13 @@ function App() {
               <Route
                 exact
                 path="/transactions/all"
-                element={<TransactionAll transactions={transactions}  merchant={mechant} loggedInMerchant={loggedInMerchant}/>}
+                element={
+                  <TransactionAll
+                    transactions={transactions}
+                    merchant={mechant}
+                    loggedInMerchant={loggedInMerchant}
+                  />
+                }
               />
               <Route
                 exact
@@ -134,6 +151,7 @@ function App() {
                     setAdmin={setAdmin}
                     merchant={mechant}
                     loggedInMerchant={loggedInMerchant}
+                    setMerchantDetailsAll={setMerchantDetailsAll}
                   />
                 }
               />

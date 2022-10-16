@@ -9,13 +9,23 @@ import PersonIcon from "@mui/icons-material/Person";
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import { Link, useNavigate } from "react-router-dom";
 
-const Homenav = ({ setAdmin, setMerchant, merchant, loggedInMerchant }) => {
+const Homenav = ({
+  setAdmin,
+  setMerchant,
+  merchant,
+  loggedInMerchant,
+  setMerchantDetailsAll,
+}) => {
+  const merchantDetailKey = "merchantdetailall";
+  const exit = JSON.parse(window.localStorage.getItem(merchantDetailKey));
+
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
   const logOut = () => {
     setAdmin(false);
     setMerchant(false);
     navigate("/");
+    setMerchantDetailsAll({});
   };
   return (
     <div className="home-nav">
@@ -56,7 +66,7 @@ const Homenav = ({ setAdmin, setMerchant, merchant, loggedInMerchant }) => {
                 />
               </div>
               <div className="modal-info-text">
-                <p>John Doe</p>
+                {merchant ? <p>{exit.account_name}</p> : <p>John Doe</p>}
                 {merchant ? (
                   <p>Merchant ID: {loggedInMerchant}</p>
                 ) : (

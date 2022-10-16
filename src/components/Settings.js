@@ -16,6 +16,10 @@ const Settings = ({ darkMode, setDarkMode }) => {
     }, 1500);
     // eslint-disable-next-line
   }, []);
+  const merchantDetailKey = "merchantdetailall";
+  const exit = JSON.parse(
+    JSON.parse(window.localStorage.getItem(merchantDetailKey))
+  );
   return (
     <div>
       {loading ? (
@@ -23,7 +27,7 @@ const Settings = ({ darkMode, setDarkMode }) => {
           <img src="/images/loading-icon.png" alt="#" />
         </div>
       ) : (
-        <div className="settings">
+        <div className="settings mb-s2">
           <div className="page navbar">
             <div className="container">
               <Link to="/" className="back-to">
@@ -113,7 +117,9 @@ const Settings = ({ darkMode, setDarkMode }) => {
               <li>
                 <div className="first-grid and">
                   <div className="linear">
-                    <p>change username</p>
+                    <p>change business name
+                      <span>{exit.business_name}</span>
+                    </p>
                     <ArrowForwardIosIcon />
                   </div>
                 </div>
@@ -121,7 +127,9 @@ const Settings = ({ darkMode, setDarkMode }) => {
               <li>
                 <div className="first-grid and">
                   <div className="linear">
-                    <p>update e-mail</p>
+                    <p>update e-mail
+                      <span>{exit.merchant_email}</span>
+                    </p>
                     <ArrowForwardIosIcon />
                   </div>
                 </div>
@@ -154,7 +162,7 @@ const Settings = ({ darkMode, setDarkMode }) => {
             </ul>
           </PageList>
           <PageList title="security">
-            <ul className="page-items mb-s2">
+            <ul className="page-items">
               <li>
                 <div className="first-grid and">
                   <div className="linear">
