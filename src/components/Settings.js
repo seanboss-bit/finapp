@@ -17,9 +17,9 @@ const Settings = ({ darkMode, setDarkMode }) => {
     // eslint-disable-next-line
   }, []);
   const merchantDetailKey = "merchantdetailall";
-  const exit = JSON.parse(
+  const exit =
     JSON.parse(window.localStorage.getItem(merchantDetailKey))
-  );
+  
   return (
     <div>
       {loading ? (
