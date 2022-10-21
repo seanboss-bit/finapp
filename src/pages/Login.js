@@ -44,7 +44,6 @@ const Login = ({
         const lol = await publicRequest.get(
           `https://safe-payy.herokuapp.com/coralpay/pos/user/validate/001`
         );
-        console.log(lol);
         if (lol.data.status) {
           setMerchantDetailsAll(lol.data.data);
           window.localStorage.setItem(
@@ -110,7 +109,7 @@ const Login = ({
                 </div>
               </div>
               <div className="reg-fog">
-                <Link to="/forgot">forgot password?</Link>
+                <Link to="/">forgot password?</Link>
               </div>
             </div>
             <div className="btn-for-form">
