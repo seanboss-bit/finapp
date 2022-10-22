@@ -3,9 +3,9 @@
   "name": "SafePAY",
   "icons": [
       {
-          "src": "./images/safepay.png",
+          "src": "./images/safe.png",
           "type": "image/png",
-          "sizes": "1024x1024",
+          "sizes": "1080x1080",
           "purpose": "maskable any"
       }
   ],
